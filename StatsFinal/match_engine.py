@@ -15,150 +15,169 @@ class MatchEngine:
 
     def simulate_match(self, home_name, away_name):
         '''pass in two team names, return result'''
-        home_team = self.team_information[home_name]
-        away_team = self.team_information[away_name]
+        self.home_team = self.team_information[home_name]
+        self.away_team = self.team_information[away_name]
 
-        # TODO - fouls here? a red card would change ALL game outcomes
-
-        home_poss = self.get_possession(home_team, away_team)
-        away_poss = round(100 - home_poss, 2)
-
-        # TODO - either after possession or passes, team's defenses need to be factored in
-        home_passes = self.get_passes(home_team, home_poss, True)
-        away_passes = self.get_passes(away_team, away_poss, False)
-
-        home_shots = self.get_shots(home_team, home_passes, True)
-        away_shots = self.get_shots(away_team, away_passes, False)
-
-        home_on_target = self.get_shots_on_target(home_team, home_shots, True)
-        away_on_target = self.get_shots_on_target(away_team, away_shots, False)
-
-        home_xG, home_xG_std = self.get_expected_goals(
-            home_team, home_on_target, True)
-        away_xG, away_xG_std = self.get_expected_goals(
-            away_team, away_on_target, False)
-
-        # defense currently only factored in here
-        home_goals = self.get_goals(
-            home_team, home_xG, home_xG_std, away_team, True)
-        away_goals = self.get_goals(
-            away_team, away_xG, away_xG_std, home_team, False)
+        # TODO - fouls should utilize red and yellow cards, do not for now
+        home_fouls, away_fouls = self.get_fouls()
+        home_poss, away_poss = self.get_possession()
+        home_passes, away_passes = self.get_passes(home_poss, away_poss)
+        home_shots, away_shots = self.get_shots(home_passes, away_passes)
+        home_on_target, away_on_target = self.get_shots_on_target(
+            home_shots, away_shots)
+        home_goals, away_goals = self.get_goals(
+            home_on_target, away_on_target)
 
         print(home_name + " " + str(home_goals) +
               "-" + str(away_goals) + " " + away_name)
+        print(home_name)
+        print(home_poss)
+        print(home_passes)
+        print(home_shots)
+        print(home_on_target)
+        print(away_name)
+        print(away_poss)
+        print(away_passes)
+        print(away_shots)
+        print(away_on_target)
 
         # TODO - better concept of this function
 
-    def get_goals(self, team, xG, xG_std, defense_team, home):
-        '''generates total goals scored in a game'''
-        key_mod = 'Away' if home else 'Home'
-        avg_key = "Avg" + key_mod + "GoalsConceded"
-        var_key = key_mod + "GoalsConcededVar"
-        def_play_key = key_mod + "Played"
-        off_play_key = ('Home' if home else "Away") + "Played"
+    def get_fouls(self):
+        home_foul_avg, home_foul_std = self.home_team.attributes[
+            "AvgHomeFouls"], self.home_team.attributes["HomeFoulsStd"]
 
-        def_played = defense_team.attributes[def_play_key]
-        off_played = team.attributes[off_play_key]
+        away_foul_avg, away_foul_std = self.away_team.attributes[
+            "AvgAwayFouls"], self.away_team.attributes["AwayFoulsStd"]
 
-        avg_conc = defense_team.attributes[avg_key]
-        conc_var = defense_team.attributes[var_key]
-        xG_var = math.pow(xG_std, 2)
-
-        diff_avg = xG - avg_conc
-        diff_std = math.sqrt((xG_var / (off_played - 1)) +
-                             (conc_var / (def_played - 1)))
-
-        random_std = random.normal(0, 1)
-        goals = round(diff_avg + (diff_std * random_std))
-
-        return goals if goals > 0 else 0
-
-    def get_expected_goals(self, team, on_target, home):
-        '''generates total number of goals expected to be scored in a game'''
-
-        # set up keys so function may work for either team
-        key_mod = 'Home' if home else 'Away'
-        avg_key = "Avg" + key_mod + "GoalsPerTarget"
-        std_key = key_mod + "GoalsPerTargetStd"
-
-        # get attributes + random performance factor
-        avg_goals = team.attributes[avg_key]
-        goals_std = team.attributes[std_key]
         random_std = random.normal(0, 0.5)
 
-        # return total number of shots the team makes
-        goals_per_target = avg_goals + (random_std * goals_std)
-        return on_target * goals_per_target, goals_std * goals_per_target
+        home_fouls = round(home_foul_avg + (home_foul_std * random_std))
+        away_fouls = round(away_foul_avg + (away_foul_std * random_std))
 
-    def get_shots_on_target(self, team, shots, home):
-        '''generates total number of shots on target a team makes in a game'''
+        return home_fouls, away_fouls
 
-        # set up keys so function may work for either team
-        key_mod = 'Home' if home else 'Away'
-        avg_key = "Avg" + key_mod + "ShotOnTarget"
-        std_key = key_mod + "OnTargetStd"
-
-        # get attributes + random performance factor
-        avg_on_target = team.attributes[avg_key]
-        on_target_std = team.attributes[std_key]
-        random_std = random.normal(0, 0.5)
-
-        # return total number of shots the team makes
-        on_target_per_shot = avg_on_target + (random_std * on_target_std)
-        return round(shots * on_target_per_shot)
-
-    def get_shots(self, team, passes, home):
+    def get_goals(self, home_on_target, away_on_target):
         '''generates total number of shots a team makes in a game'''
 
-        # set up keys so function may work for either team
-        key_mod = 'Home' if home else 'Away'
-        avg_key = "Avg" + key_mod + "ShotPerPass"
-        std_key = key_mod + "ShotPerPassStd"
+        home_avg_goals, home_goals_std, home_goals_def, home_goals_def_std, home_played = self.home_team.attributes[
+            "AvgHomeGoalsPerTarget"], self.home_team.attributes["HomeGoalsPerTargetStd"], self.home_team.attributes[
+                "AvgHomeGoalConc"], self.home_team.attributes["HomeGoalConcStd"], self.home_team.attributes["HomePlayed"]
 
-        # get attributes + random performance factor
-        avg_shots = team.attributes[avg_key]
-        shot_std = team.attributes[std_key]
-        random_std = random.normal(0, 0.5)
+        away_avg_goals, away_goals_std, away_goals_def, away_goals_def_std, away_played = self.away_team.attributes[
+            "AvgAwayGoalsPerTarget"], self.away_team.attributes["AwayGoalsPerTargetStd"], self.away_team.attributes[
+            "AvgAwayGoalConc"], self.away_team.attributes["AwayGoalConcStd"], self.away_team.attributes["AwayPlayed"]
 
-        # return total number of shots the team makes
-        shots_per_pass = avg_shots + (random_std * shot_std)
-        return round(passes * shots_per_pass)
+        home_extra_goal_avg = home_avg_goals - away_goals_def
+        home_extra_goal_std = math.sqrt((math.pow(home_goals_std, 2) / (home_played - 1)) +
+                                        (math.pow(away_goals_def_std, 2) / (away_played - 1)))
 
-    def get_passes(self, team, poss, home):
-        '''generates total number of passes a team makes in a game'''
+        away_extra_goal_avg = away_avg_goals - home_goals_def
+        away_extra_goal_std = math.sqrt((math.pow(away_goals_std, 2) / (away_played - 1)) +
+                                        (math.pow(home_goals_def_std, 2) / (home_played - 1)))
 
-        # set up keys so function may work for either team
-        key_mod = 'Home' if home else 'Away'
-        avg_key = "Avg" + key_mod + "PassPerPoss"
-        std_key = key_mod + "PassPerPossStd"
+        home_goal_per_target = home_avg_goals - \
+            random.normal(home_extra_goal_avg, home_extra_goal_std)
 
-        # get attributes + random performance factor
-        avg_pass = team.attributes[avg_key]
-        pass_std = team.attributes[std_key]
-        random_std = random.normal(0, 0.5)
+        away_goal_per_target = away_avg_goals - \
+            random.normal(away_extra_goal_avg, away_extra_goal_std)
 
-        # return total number of passes the team makes
-        pass_per_poss = avg_pass + (random_std * pass_std)
-        return round(poss * pass_per_poss)
+        home_goals = round(home_goal_per_target * home_on_target)
+        away_goals = round(away_goal_per_target * away_on_target)
 
-    def get_possession(self, home_team, away_team):
+        return home_goals, away_goals
+
+    def get_shots_on_target(self, home_shots, away_shots):
+        '''generates total number of shots a team makes in a game'''
+
+        home_avg_target, home_target_std, home_target_def, home_target_def_std, home_played = self.home_team.attributes[
+            "AvgHomeShotOnTarget"], self.home_team.attributes["HomeOnTargetStd"], self.home_team.attributes[
+                "AvgHomeOnTargetConc"], self.home_team.attributes["HomeOnTargetConcStd"], self.home_team.attributes["HomePlayed"]
+
+        away_avg_target, away_target_std, away_target_def, away_target_def_std, away_played = self.away_team.attributes[
+            "AvgAwayShotOnTarget"], self.away_team.attributes["AwayOnTargetStd"], self.away_team.attributes[
+            "AvgAwayOnTargetConc"], self.away_team.attributes["AwayOnTargetConcStd"], self.away_team.attributes["AwayPlayed"]
+
+        home_extra_target_avg = home_avg_target - away_target_def
+        home_extra_target_std = math.sqrt((math.pow(home_target_std, 2) / (home_played - 1)) +
+                                          (math.pow(away_target_def_std, 2) / (away_played - 1)))
+
+        away_extra_target_avg = away_avg_target - home_target_def
+        away_extra_target_std = math.sqrt((math.pow(away_target_std, 2) / (away_played - 1)) +
+                                          (math.pow(home_target_def_std, 2) / (home_played - 1)))
+
+        home_target_per_shot = home_avg_target - \
+            random.normal(home_extra_target_avg, home_extra_target_std)
+
+        away_target_per_shot = away_avg_target - \
+            random.normal(away_extra_target_avg, away_extra_target_std)
+
+        home_target = round(home_target_per_shot * home_shots)
+        away_target = round(away_target_per_shot * away_shots)
+
+        return home_target, away_target
+
+    def get_shots(self, home_passes, away_passes):
+        '''generates total number of shots a team makes in a game'''
+
+        home_avg_shots, home_shot_std, home_shot_def, home_def_std, home_played = self.home_team.attributes[
+            "AvgHomeShotPerPass"], self.home_team.attributes["HomeShotPerPassStd"], self.home_team.attributes[
+                "AvgHomeShotPassConc"], self.home_team.attributes["HomeShotPassConcStd"], self.home_team.attributes["HomePlayed"]
+
+        away_avg_shots, away_shot_std, away_shot_def, away_def_std, away_played = self.away_team.attributes[
+            "AvgAwayShotPerPass"], self.away_team.attributes["AwayShotPerPassStd"], self.away_team.attributes[
+            "AvgAwayShotPassConc"], self.away_team.attributes["AwayShotPassConcStd"], self.away_team.attributes["AwayPlayed"]
+
+        home_extra_shot_avg = home_avg_shots - away_shot_def
+        home_extra_shot_std = math.sqrt((math.pow(home_shot_std, 2) / (home_played - 1)) +
+                                        (math.pow(away_def_std, 2) / (away_played - 1)))
+
+        away_extra_shot_avg = away_avg_shots - home_shot_def
+        away_extra_shot_std = math.sqrt((math.pow(away_shot_std, 2) / (away_played - 1)) +
+                                        (math.pow(home_def_std, 2) / (home_played - 1)))
+
+        home_shot_per_pass = home_avg_shots - \
+            random.normal(home_extra_shot_avg, home_extra_shot_std)
+
+        away_shot_per_pass = away_avg_shots - \
+            random.normal(away_extra_shot_avg, away_extra_shot_std)
+
+        home_shots = round(home_shot_per_pass * home_passes)
+        away_shots = round(away_shot_per_pass * away_passes)
+
+        return home_shots, away_shots
+
+    def get_passes(self, home_poss, away_poss):
+        '''generates total number of passes teams make in a game'''
+
+        home_avg_pass, home_pass_std = self.home_team.attributes[
+            "AvgHomePassPerPoss"], self.home_team.attributes["HomePassPerPossStd"]
+
+        away_avg_pass, away_pass_std = self.away_team.attributes[
+            "AvgAwayPassPerPoss"], self.away_team.attributes["AwayPassPerPossStd"]
+
+        home_pass_per_poss = random.normal(home_avg_pass, home_pass_std)
+        away_pass_per_poss = random.normal(away_avg_pass, away_pass_std)
+
+        home_passes = round(home_poss * home_pass_per_poss)
+        away_passes = round(away_poss * away_pass_per_poss)
+
+        return home_passes, away_passes
+
+    def get_possession(self):
         '''generate possession, return difference in possession for home team'''
 
         # need average possession, variance, and the number of games played for both teams
-        home_avg, home_var, home_played = home_team.attributes[
-            "AvgHomePoss"], home_team.attributes["HomePossVar"], home_team.attributes["HomePlayed"]
-        away_avg, away_var, away_played = away_team.attributes[
-            "AvgAwayPoss"], away_team.attributes["AwayPossVar"], away_team.attributes["AwayPlayed"]
+        home_avg, home_var, home_played = self.home_team.attributes[
+            "AvgHomePoss"], self.home_team.attributes["HomePossVar"], self.home_team.attributes["HomePlayed"]
+        away_avg, away_var, away_played = self.away_team.attributes[
+            "AvgAwayPoss"], self.away_team.attributes["AwayPossVar"], self.away_team.attributes["AwayPlayed"]
 
         # currently treating a difference of 2 distributions
         diff_avg = home_avg - away_avg
         diff_std = math.sqrt((home_var / (home_played - 1)) +
                              (away_var / (away_played - 1)))
 
-        # generate random number to determine 'how much' possession
-        # generating with std of 0.5 to balance randomness
-        random_std = random.normal(0, 0.5)
-
-        # assuming 50% is baseline, average possession for home team is 50% plus the difference in averages, plus the positive/negative performance adjustment
-        home_poss = 50 + diff_avg + (random_std * diff_std)
-        return round(home_poss, 2)
+        # assuming 50% is baseline, average possession for home team is 50% plus the random adjustment
+        home_poss = 50 + random.normal(diff_avg, diff_std)
+        return round(home_poss, 2), round(100 - home_poss, 2)

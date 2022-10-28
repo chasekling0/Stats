@@ -8,12 +8,19 @@ from numpy import average, std
 class Team:
     '''class to hold and update team attributes'''
 
-    def __init__(self, name, results) -> None:
+    def __init__(self, name, results, opposition_results) -> None:
         '''initialize and generate attributes based on results'''
         self.name = name
         self.results: pd.DataFrame = results
+        self.opp: pd.DataFrame = opposition_results
+        # print(name)
+        # print(str(opposition_results))
         self.attributes = {}
         self.generate_attributes()
+
+        # print(name)
+        # for key, value in self.attributes.items():
+        #     print(str(key) + " : " + str(value))
 
     def __str__(self):
         '''basic string representation of the class'''
@@ -21,10 +28,22 @@ class Team:
 
     def generate_attributes(self):
         '''generate attributes from given results'''
+
+        # offensive stats for games at home
         self.home_games = self.results.loc[(
             self.results["Home/Away"] == "Home")].dropna(axis=0)
+
+        # offensive stats for games away from home
         self.away_games = self.results.loc[(
             self.results["Home/Away"] == "Away")].dropna(axis=0)
+
+        # defensive stats for games at home
+        self.home_opp = self.opp.loc[(
+            self.opp["Home/Away"] == "Away")].dropna(axis=0)
+
+        # defensive stats for games away from home
+        self.away_opp = self.opp.loc[(
+            self.opp["Home/Away"] == "Home")].dropna(axis=0)
 
         self.generate_possession_stats()
         self.generate_pass_stats()
@@ -42,6 +61,34 @@ class Team:
         self.attributes["AvgAwayPoss"] = average(self.away_games["Possession"])
         self.attributes["AwayPossVar"] = self.away_games["Possession"].var()
         self.attributes["AwayPlayed"] = len(self.away_games)
+
+        # home fouls attributes
+        self.attributes["AvgHomeFouls"] = average(self.home_games["Fouls"])
+        self.attributes["HomeFoulsStd"] = self.home_games["Fouls"].std()
+
+        home_yellow_per_foul = list(map(truediv, list(
+            self.home_games["Yellow Cards"]), list(self.home_games["Fouls"])))
+        self.attributes["AvgHomeYellow"] = average(home_yellow_per_foul)
+        self.attributes["HomeYellowStd"] = std(home_yellow_per_foul)
+
+        home_red_per_foul = list(map(truediv, list(
+            self.home_games["Red Cards"]), list(self.home_games["Fouls"])))
+        self.attributes["AvgHomeRed"] = average(home_red_per_foul)
+        self.attributes["HomeRedStd"] = std(home_red_per_foul)
+
+        # away fouls attributes
+        self.attributes["AvgAwayFouls"] = average(self.away_games["Fouls"])
+        self.attributes["AwayFoulsStd"] = self.away_games["Fouls"].std()
+
+        away_yellow_per_foul = list(map(truediv, list(
+            self.away_games["Yellow Cards"]), list(self.away_games["Fouls"])))
+        self.attributes["AvgAwayYellow"] = average(away_yellow_per_foul)
+        self.attributes["AwayYellowStd"] = std(away_yellow_per_foul)
+
+        away_red_per_foul = list(map(truediv, list(
+            self.away_games["Red Cards"]), list(self.away_games["Fouls"])))
+        self.attributes["AvgAwayRed"] = average(away_red_per_foul)
+        self.attributes["AwayRedStd"] = std(away_red_per_foul)
 
     def generate_pass_stats(self):
         # home pass attributes
@@ -101,12 +148,62 @@ class Team:
         self.attributes["AwayGoalsPerTargetStd"] = std(away_goals_ratio)
 
     def generate_defensive_stats(self):
-        # home defensive attributes
+
+        # home passes to shots conceded
+        home_shots_per_pass_conc = list(
+            map(truediv, list(self.home_opp["Shots"]), list(self.home_opp["Passes"])))
+        self.attributes["AvgHomeShotPassConc"] = average(
+            home_shots_per_pass_conc)
+        self.attributes["HomeShotPassConcStd"] = std(
+            home_shots_per_pass_conc)
+
+        # home shots to shots on target conceded
+        home_shots_on_target_conc = list(
+            map(truediv, list(self.home_opp["On Target"]), list(self.home_opp["Shots"])))
+        self.attributes["AvgHomeOnTargetConc"] = average(
+            home_shots_on_target_conc)
+        self.attributes["HomeOnTargetConcStd"] = std(
+            home_shots_on_target_conc)
+
+        # home shots on target to goals conceded
+        home_target_goals_conc = list(
+            map(truediv, list(self.home_opp["Goals"]), list(self.home_opp["On Target"].replace(0, 1))))
+        self.attributes["AvgHomeGoalConc"] = average(
+            home_target_goals_conc)
+        self.attributes["HomeGoalConcStd"] = std(
+            home_target_goals_conc)
+
+        # away passes to shots conceded
+        away_shots_per_pass_conc = list(
+            map(truediv, list(self.away_opp["Shots"]), list(self.away_opp["Passes"])))
+        self.attributes["AvgAwayShotPassConc"] = average(
+            away_shots_per_pass_conc)
+        self.attributes["AwayShotPassConcStd"] = std(
+            away_shots_per_pass_conc)
+
+        # away shots to shots on target conceded
+        away_shots_on_target_conc = list(
+            map(truediv, list(self.away_opp["On Target"]), list(self.away_opp["Shots"])))
+        self.attributes["AvgAwayOnTargetConc"] = average(
+            away_shots_on_target_conc)
+        self.attributes["AwayOnTargetConcStd"] = std(
+            away_shots_on_target_conc)
+
+        # away shots on target to goals conceded
+        away_target_goals_conc = list(
+            map(truediv, list(self.away_opp["Goals"]), list(self.away_opp["On Target"].replace(0, 1))))
+        self.attributes["AvgAwayGoalConc"] = average(
+            away_target_goals_conc)
+        self.attributes["AwayGoalConcStd"] = std(
+            away_target_goals_conc)
+
+        # TODO - delete below
+        # home goals conceded
         self.attributes["AvgHomeGoalsConceded"] = average(
             self.home_games["Allowed"])
         self.attributes["HomeGoalsConcededVar"] = self.home_games["Allowed"].var()
 
-        # away defensive attributes
+        # away goals conceded
         self.attributes["AvgAwayGoalsConceded"] = average(
             self.away_games["Allowed"])
         self.attributes["AwayGoalsConcededVar"] = self.away_games["Allowed"].var()

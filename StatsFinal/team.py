@@ -26,6 +26,13 @@ class Team:
         '''basic string representation of the class'''
         return str(self.name) + "\n" + str(self.results)
 
+    def update_results(self, team_result, opp_result):
+        self.results.loc[len(self.results.index)] = team_result
+        self.opp.loc[len(self.opp.index)] = opp_result
+
+        self.attributes.clear()
+        self.generate_attributes()
+
     def generate_attributes(self):
         '''generate attributes from given results'''
 

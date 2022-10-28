@@ -28,20 +28,26 @@ class MatchEngine:
         home_goals, away_goals = self.get_goals(
             home_on_target, away_on_target)
 
-        print(home_name + " " + str(home_goals) +
-              "-" + str(away_goals) + " " + away_name)
-        print(home_name)
-        print(home_poss)
-        print(home_passes)
-        print(home_shots)
-        print(home_on_target)
-        print(away_name)
-        print(away_poss)
-        print(away_passes)
-        print(away_shots)
-        print(away_on_target)
+        score = home_goals - away_goals
+        home_result, away_result = self.determine_winner(score)
+
+        home_output = [home_name, away_name, "Home", home_poss, home_fouls, 0, 0,
+                       home_passes, home_shots, home_on_target, home_goals, away_goals, home_result]
+        away_output = [away_name, home_name, "Away", away_poss, away_fouls, 0, 0,
+                       away_passes, away_shots, away_on_target, away_goals, home_goals, away_result]
+
+        self.home_team.update_results(home_output, away_output)
+        self.away_team.update_results(away_output, home_output)
 
         # TODO - better concept of this function
+
+    def determine_winner(self, score):
+        if score > 0:
+            return 'W', 'L'
+        elif score == 0:
+            return 'D', 'D'
+        elif score < 0:
+            return 'L', 'W'
 
     def get_fouls(self):
         home_foul_avg, home_foul_std = self.home_team.attributes[
@@ -85,7 +91,7 @@ class MatchEngine:
         home_goals = round(home_goal_per_target * home_on_target)
         away_goals = round(away_goal_per_target * away_on_target)
 
-        return home_goals, away_goals
+        return home_goals if home_goals > 0 else 0, away_goals if away_goals > 0 else 0
 
     def get_shots_on_target(self, home_shots, away_shots):
         '''generates total number of shots a team makes in a game'''

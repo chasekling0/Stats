@@ -38,6 +38,3 @@ match_engine.simulate_match("Leeds", "Leicester")
 # TODO - match engine to simulate match between two teams that saves the match to results
 # TODO - run match engine for remaining results and save to standings
 # TODO - way to run match engine 100-1000 times and save stat results
-
-# standings = pd.read_csv(
-#     "C:/Users/chase/OneDrive/Documents/Fall2022Classes/Stats/Other/StatsFinal/StatsPremStandings.xlsx")

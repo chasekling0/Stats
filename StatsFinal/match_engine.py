@@ -29,7 +29,7 @@ class MatchEngine:
         home_goals, away_goals = self.get_goals(
             home_on_target, away_on_target)
 
-        if home_goals + away_goals >= 7:
+        if home_goals + away_goals >= 10:
             print(home_name + " " + str(home_goals) +
                   "-" + str(away_goals) + " " + away_name)
 

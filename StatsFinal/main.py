@@ -1,9 +1,12 @@
+import time
+
 import pandas as pd
 from numpy import average
 
 from match_engine import MatchEngine
 from team import Team
 
+start_time = time.time()
 results_data = pd.read_csv(
     "./StatsFinalData.csv")
 
@@ -14,7 +17,7 @@ header = ["Team", "Played", "Wins", "Draws", "Losses",
 all_header = ["Rank", *header]
 all_standings = pd.DataFrame(columns=all_header)
 
-for i in range(100):
+for i in range(500):
     # set up the seasons
     print("Season #" + str(i+1))
     team_objects = {}
@@ -128,3 +131,6 @@ print("Worst Table")
 print(worst_table)
 print("Other Stats")
 print(other_stats)
+
+elapsed = (time.time() - start_time) / 60.0
+print("Simulating 500 seasons took: " + str(elapsed) + "minutes")

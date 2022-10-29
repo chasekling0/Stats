@@ -1,0 +1,40 @@
+Crystal Palace
+[12, 'Crystal Palace', 38, 12, 10, 16, 46, 46, 55, -9]
+Arsenal
+[2, 'Arsenal', 38, 23, 10, 5, 79, 58, 36, 22]
+Fulham
+[17, 'Fulham', 38, 10, 9, 19, 39, 46, 58, -12]
+Liverpool
+[10, 'Liverpool', 38, 15, 9, 14, 54, 66, 52, 14]
+Bournemouth
+[16, 'Bournemouth', 38, 10, 11, 17, 41, 36, 60, -24]
+Aston Villa
+[13, 'Aston Villa', 38, 13, 6, 19, 45, 39, 49, -10]
+Leeds
+[19, 'Leeds', 38, 9, 6, 23, 33, 46, 85, -39]
+Wolves
+[9, 'Wolves', 38, 16, 7, 15, 55, 46, 46, 0]
+Newcastle
+[4, 'Newcastle', 38, 21, 10, 7, 73, 52, 28, 24]
+Nottingham
+[20, 'Nottingham', 38, 5, 9, 24, 24, 28, 74, -46]
+Spurs
+[3, 'Spurs', 38, 23, 6, 9, 75, 65, 27, 38]
+Southampton
+[15, 'Southampton', 38, 11, 8, 19, 41, 34, 48, -14]
+Everton
+[11, 'Everton', 38, 13, 7, 18, 46, 40, 45, -5]
+Chelsea
+[5, 'Chelsea', 38, 19, 7, 12, 64, 56, 46, 10]
+Leicester
+[14, 'Leicester', 38, 12, 6, 20, 42, 52, 68, -16]
+Brentford
+[18, 'Brentford', 38, 6, 15, 17, 33, 40, 64, -24]
+Manchester United
+[7, 'Manchester United', 38, 17, 8, 13, 59, 48, 43, 5]
+Brighton
+[8, 'Brighton', 38, 17, 5, 16, 56, 47, 43, 4]
+West Ham
+[6, 'West Ham', 38, 17, 9, 12, 60, 45, 33, 12]
+Manchester City
+[1, 'Manchester City', 38, 29, 6, 3, 93, 89, 19, 70]

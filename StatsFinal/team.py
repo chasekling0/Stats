@@ -134,7 +134,7 @@ class Team:
 
         # home shot on target attributes
         home_shots_on_target_ratio = list(
-            map(truediv, list(self.home_games["On Target"]), list(self.home_games["Shots"])))
+            map(truediv, list(self.home_games["On Target"]), list(self.home_games["Shots"].replace(0, 1))))
         self.attributes["AvgHomeShotOnTarget"] = average(
             home_shots_on_target_ratio)
         self.attributes["HomeOnTargetStd"] = std(home_shots_on_target_ratio)
@@ -203,7 +203,7 @@ class Team:
 
         # away shots to shots on target conceded
         away_shots_on_target_conc = list(
-            map(truediv, list(self.away_opp["On Target"]), list(self.away_opp["Shots"])))
+            map(truediv, list(self.away_opp["On Target"]), list(self.away_opp["Shots"].replace(0, 1))))
         self.attributes["AvgAwayOnTargetConc"] = average(
             away_shots_on_target_conc)
         self.attributes["AwayOnTargetConcStd"] = std(

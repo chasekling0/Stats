@@ -1,6 +1,7 @@
 import math
 
-from numpy import random
+from numpy import average, random, std
+from scipy.stats import poisson as poisson
 
 import team
 
@@ -28,8 +29,9 @@ class MatchEngine:
         home_goals, away_goals = self.get_goals(
             home_on_target, away_on_target)
 
-        print(home_name + " " + str(home_goals) +
-              "-" + str(away_goals) + " " + away_name)
+        if home_goals + away_goals >= 7:
+            print(home_name + " " + str(home_goals) +
+                  "-" + str(away_goals) + " " + away_name)
 
         score = home_goals - away_goals
         home_result, away_result = self.determine_winner(score)
@@ -41,8 +43,6 @@ class MatchEngine:
 
         self.home_team.update_results(home_output, away_output)
         self.away_team.update_results(away_output, home_output)
-
-        # TODO - better concept of this function
 
     def determine_winner(self, score):
         if score > 0:
@@ -91,10 +91,44 @@ class MatchEngine:
         away_goal_per_target = away_avg_goals - \
             random.normal(away_extra_goal_avg, away_extra_goal_std)
 
-        home_goals = round(home_goal_per_target * home_on_target)
-        away_goals = round(away_goal_per_target * away_on_target)
+        home_xGoals = home_goal_per_target * home_on_target
+        away_xGoals = away_goal_per_target * away_on_target
 
-        return home_goals if home_goals > 0 else 0, away_goals if away_goals > 0 else 0
+        goal_values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        home_prob = []
+        away_prob = []
+
+        for i, val in enumerate(goal_values):
+            home_val = poisson.pmf(k=val, mu=home_xGoals) * 1000
+            away_val = poisson.pmf(k=val, mu=away_xGoals) * 1000
+            if not math.isnan(home_val):
+                home_prob.append(round(home_val))
+            else:
+                home_prob.append(0)
+            if not math.isnan(away_val):
+                away_prob.append(round(away_val))
+            else:
+                away_prob.append(0)
+
+        random_home = random.normal(500, 100)
+        random_away = random.normal(500, 100)
+
+        total = 0
+        home_goals, away_goals = 0, 0
+        for i, prob in enumerate(home_prob):
+            total += prob
+            if random_home <= total:
+                home_goals = goal_values[i]
+                break
+
+        total = 0
+        for i, prob in enumerate(away_prob):
+            total += prob
+            if random_away <= total:
+                away_goals = goal_values[i]
+                break
+
+        return home_goals, away_goals
 
     def get_shots_on_target(self, home_shots, away_shots):
         '''generates total number of shots a team makes in a game'''

@@ -26,6 +26,19 @@ class Team:
         '''basic string representation of the class'''
         return str(self.name) + "\n" + str(self.results)
 
+    def final_standing(self):
+        games_played = len(self.results)
+        match_results = self.results["Result"].value_counts()
+        wins = match_results._get_value("W")
+        draws = match_results._get_value("D")
+        losses = match_results._get_value("L")
+        points = (3 * wins) + draws
+        goals_for = self.results["Goals"].sum()
+        goals_conceded = self.results["Allowed"].sum()
+        goal_difference = goals_for - goals_conceded
+
+        return [self.name, games_played, wins, draws, losses, points, goals_for, goals_conceded, goal_difference]
+
     def update_results(self, team_result, opp_result):
         self.results.loc[len(self.results.index)] = team_result
         self.opp.loc[len(self.opp.index)] = opp_result
@@ -134,7 +147,7 @@ class Team:
 
         # away shot on target attributes
         away_shots_on_target_ratio = list(
-            map(truediv, list(self.away_games["On Target"]), list(self.away_games["Shots"])))
+            map(truediv, list(self.away_games["On Target"]), list(self.away_games["Shots"].replace(0, 1))))
         self.attributes["AvgAwayShotOnTarget"] = average(
             away_shots_on_target_ratio)
         self.attributes["AwayOnTargetStd"] = std(away_shots_on_target_ratio)
@@ -142,7 +155,7 @@ class Team:
     def generate_goal_stats(self):
         # home goals attributes
         home_goals_ratio = list(
-            map(truediv, list(self.home_games["Goals"]), list(self.home_games["On Target"])))
+            map(truediv, list(self.home_games["Goals"]), list(self.home_games["On Target"].replace(0, 1))))
         self.attributes["AvgHomeGoalsPerTarget"] = average(
             home_goals_ratio)
         self.attributes["HomeGoalsPerTargetStd"] = std(home_goals_ratio)
@@ -166,7 +179,7 @@ class Team:
 
         # home shots to shots on target conceded
         home_shots_on_target_conc = list(
-            map(truediv, list(self.home_opp["On Target"]), list(self.home_opp["Shots"])))
+            map(truediv, list(self.home_opp["On Target"]), list(self.home_opp["Shots"].replace(0, 1))))
         self.attributes["AvgHomeOnTargetConc"] = average(
             home_shots_on_target_conc)
         self.attributes["HomeOnTargetConcStd"] = std(
@@ -203,17 +216,6 @@ class Team:
             away_target_goals_conc)
         self.attributes["AwayGoalConcStd"] = std(
             away_target_goals_conc)
-
-        # TODO - delete below
-        # home goals conceded
-        self.attributes["AvgHomeGoalsConceded"] = average(
-            self.home_games["Allowed"])
-        self.attributes["HomeGoalsConcededVar"] = self.home_games["Allowed"].var()
-
-        # away goals conceded
-        self.attributes["AvgAwayGoalsConceded"] = average(
-            self.away_games["Allowed"])
-        self.attributes["AwayGoalsConcededVar"] = self.away_games["Allowed"].var()
 
     # TODO - way to save results to the results field
     # TODO - update attributes based on generated games

@@ -28,12 +28,15 @@ class MatchEngine:
         home_goals, away_goals = self.get_goals(
             home_on_target, away_on_target)
 
+        print(home_name + " " + str(home_goals) +
+              "-" + str(away_goals) + " " + away_name)
+
         score = home_goals - away_goals
         home_result, away_result = self.determine_winner(score)
 
-        home_output = [home_name, away_name, "Home", home_poss, home_fouls, 0, 0,
+        home_output = [0, home_name, away_name, "Home", home_poss, home_fouls, 0, 0,
                        home_passes, home_shots, home_on_target, home_goals, away_goals, home_result]
-        away_output = [away_name, home_name, "Away", away_poss, away_fouls, 0, 0,
+        away_output = [0, away_name, home_name, "Away", away_poss, away_fouls, 0, 0,
                        away_passes, away_shots, away_on_target, away_goals, home_goals, away_result]
 
         self.home_team.update_results(home_output, away_output)

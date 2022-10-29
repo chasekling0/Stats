@@ -110,8 +110,8 @@ class MatchEngine:
             else:
                 away_prob.append(0)
 
-        random_home = random.normal(500, 100)
-        random_away = random.normal(500, 100)
+        random_home = random.normal(470, 50)
+        random_away = random.normal(470, 50)
 
         total = 0
         home_goals, away_goals = 0, 0

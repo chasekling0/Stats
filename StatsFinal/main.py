@@ -14,7 +14,7 @@ header = ["Team", "Played", "Wins", "Draws", "Losses",
 all_header = ["Rank", *header]
 all_standings = pd.DataFrame(columns=all_header)
 
-for i in range(1):
+for i in range(100):
     # set up the seasons
     print("Season #" + str(i+1))
     team_objects = {}

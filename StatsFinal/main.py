@@ -17,7 +17,10 @@ header = ["Team", "Played", "Wins", "Draws", "Losses",
 all_header = ["Rank", *header]
 all_standings = pd.DataFrame(columns=all_header)
 
-for i in range(500):
+arsenal_stats = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession", "Fouls",
+                             "Yellow Cards", "Red Cards", "Passes", "Shots", "On Target", "Goals", "Allowed", "Result"])
+
+for i in range(100):
     # set up the seasons
     print("Season #" + str(i+1))
     team_objects = {}
@@ -50,6 +53,10 @@ for i in range(500):
     standings = standings.sort_values(
         by=["Points", "Goal Difference", "Goals For"], ascending=False).reset_index()
     standings.index += 1
+
+    for index, row in team_objects["Arsenal"].results.iterrows():
+        arsenal_stats.loc[(len(arsenal_stats.index))
+                          ] = row
     # print(team_objects["Arsenal"].results)
     # print(standings.to_string())
 
@@ -63,6 +70,8 @@ best_table = pd.DataFrame(columns=all_header)
 worst_table = pd.DataFrame(columns=all_header)
 other_stats = pd.DataFrame(columns=[
                            "Team", "Champions", "CL Qual", "EL Qual", "ECL Qual", "Last In", "Relegated", "Bottom"])
+arsenal_averages = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession", "Fouls",
+                                         "Yellow Cards", "Red Cards", "Passes", "Shots", "On Target", "Goals", "Allowed", "Win %", "Draw %", "Loss %"])
 
 final = open("./ResultData.txt", "w", encoding='UTF-8')
 for i, team in enumerate(team_names):
@@ -103,6 +112,69 @@ for i, team in enumerate(team_names):
         final.write(str(list(season)))
         final.write("\n")
 
+final.close()
+
+opponents = team_names.tolist()
+opponents.remove("Arsenal")
+
+for i, team in enumerate(opponents):
+    team_results = arsenal_stats.loc[(arsenal_stats["Opponent"] == team)]
+
+    arsenal_home = team_results.loc[(team_results["Home/Away"] == "Home")]
+    arsenal_away = team_results.loc[(team_results["Home/Away"] == "Away")]
+
+    headers = ["Possession", "Fouls", "Yellow Cards", "Red Cards",
+               "Passes", "Shots", "On Target", "Goals", "Allowed"]
+
+    home_row = ["Arsenal", team, "Home"]
+    away_row = ["Arsenal", team, "Away"]
+
+    for i, stat in enumerate(headers):
+
+        home_stat = average(arsenal_home[stat])
+        home_row.append(home_stat)
+
+        away_stat = average(arsenal_away[stat])
+        away_row.append(away_stat)
+
+    home_res = arsenal_home["Result"].value_counts(
+        normalize=True)
+    away_res = arsenal_away["Result"].value_counts(
+        normalize=True)
+    try:
+        home_row.append(home_res["W"])
+    except:
+        home_row.append(0.0)
+
+    try:
+        away_row.append(away_res["W"])
+    except:
+        away_row.append(0.0)
+
+    try:
+        home_row.append(home_res["D"])
+    except:
+        home_row.append(0.0)
+
+    try:
+        away_row.append(away_res["D"])
+    except:
+        away_row.append(0.0)
+
+    try:
+        home_row.append(home_res["L"])
+    except:
+        home_row.append(0.0)
+
+    try:
+        away_row.append(away_res["L"])
+    except:
+        away_row.append(0.0)
+
+    arsenal_averages.loc[(len(arsenal_averages.index))] = home_row
+    arsenal_averages.loc[(len(arsenal_averages.index))] = away_row
+
+
 avg_table = avg_table.sort_values(
     by=["Points", "Goal Difference", "Goals For"], ascending=False)
 avg_table.reset_index(inplace=True, drop=True)
@@ -123,6 +195,11 @@ other_stats = other_stats.sort_values(
 other_stats.reset_index(inplace=True, drop=True)
 other_stats.index += 1
 
+arsenal_averages = arsenal_averages.sort_values(
+    by=["Opponent", "Goals", "Allowed"])
+arsenal_averages.reset_index(inplace=True, drop=True)
+arsenal_averages.index += 1
+
 print("Average Table")
 print(avg_table)
 print("Best Table")
@@ -131,6 +208,8 @@ print("Worst Table")
 print(worst_table)
 print("Other Stats")
 print(other_stats)
+print("Arsenal Data")
+print(arsenal_averages)
 
 elapsed = (time.time() - start_time) / 60.0
 print("Simulating 500 seasons took: " + str(elapsed) + "minutes")

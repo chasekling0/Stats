@@ -87,12 +87,12 @@ class Team:
         self.attributes["HomeFoulsStd"] = self.home_games["Fouls"].std()
 
         home_yellow_per_foul = list(map(truediv, list(
-            self.home_games["Yellow Cards"]), list(self.home_games["Fouls"])))
+            self.home_games["Yellow Cards"]), list(self.home_games["Fouls"].replace(0, 1))))
         self.attributes["AvgHomeYellow"] = average(home_yellow_per_foul)
         self.attributes["HomeYellowStd"] = std(home_yellow_per_foul)
 
         home_red_per_foul = list(map(truediv, list(
-            self.home_games["Red Cards"]), list(self.home_games["Fouls"])))
+            self.home_games["Red Cards"]), list(self.home_games["Fouls"].replace(0, 1))))
         self.attributes["AvgHomeRed"] = average(home_red_per_foul)
         self.attributes["HomeRedStd"] = std(home_red_per_foul)
 
@@ -101,12 +101,12 @@ class Team:
         self.attributes["AwayFoulsStd"] = self.away_games["Fouls"].std()
 
         away_yellow_per_foul = list(map(truediv, list(
-            self.away_games["Yellow Cards"]), list(self.away_games["Fouls"])))
+            self.away_games["Yellow Cards"]), list(self.away_games["Fouls"].replace(0, 1))))
         self.attributes["AvgAwayYellow"] = average(away_yellow_per_foul)
         self.attributes["AwayYellowStd"] = std(away_yellow_per_foul)
 
         away_red_per_foul = list(map(truediv, list(
-            self.away_games["Red Cards"]), list(self.away_games["Fouls"])))
+            self.away_games["Red Cards"]), list(self.away_games["Fouls"].replace(0, 1))))
         self.attributes["AvgAwayRed"] = average(away_red_per_foul)
         self.attributes["AwayRedStd"] = std(away_red_per_foul)
 

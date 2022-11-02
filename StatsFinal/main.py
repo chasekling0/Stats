@@ -10,6 +10,11 @@ start_time = time.time()
 results_data = pd.read_csv(
     "./StatsFinalData.csv")
 
+# use model for average statistics to fivethirtyeight rankings
+# have model for football database ranking to result / goals
+# update model game by game
+
+
 team_names = results_data["Team"].unique()
 
 header = ["Team", "Played", "Wins", "Draws", "Losses",

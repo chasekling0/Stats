@@ -1,253 +1,253 @@
-Team,Opponent,Home/Away,Possession,Fouls,Yellow Cards,Red Cards,Passes,Shots,On Target,Goals,Allowed,Result
-Crystal Palace,Arsenal,Home,56.3,16,1,0,562,10,2,0,2,L
-Arsenal,Crystal Palace,Away,43.7,11,2,0,438,10,2,2,0,W
-Fulham,Liverpool,Home,33.1,7,2,0,294,9,3,2,2,D
-Liverpool,Fulham,Away,66.9,9,0,0,612,11,4,2,2,D
-Bournemouth,Aston Villa,Home,34.4,18,3,0,301,7,3,2,0,W
-Aston Villa,Bournemouth,Away,65.6,16,3,0,571,15,2,0,2,L
-Leeds,Wolves,Home,40.1,13,2,0,355,12,4,2,1,W
-Wolves,Leeds,Away,59.9,9,0,0,546,15,6,1,2,L
-Newcastle,Nottingham,Home,61.4,9,0,0,469,23,10,2,0,W
-Nottingham,Newcastle,Away,38.6,14,3,0,294,5,0,0,2,L
-Spurs,Southampton,Home,57.5,11,3,0,554,18,8,4,1,W
-Southampton,Spurs,Away,42.5,6,0,0,410,10,2,1,4,L
-Everton,Chelsea,Home,37.3,14,3,0,335,8,4,0,1,L
-Chelsea,Everton,Away,62.7,11,2,0,566,15,6,1,0,W
-Leicester,Brentford,Home,55.4,6,0,0,580,14,5,2,2,D
-Brentford,Leicester,Away,44.6,5,0,0,457,8,3,2,2,D
-Manchester United,Brighton,Home,62.9,7,4,0,548,17,5,1,2,L
-Brighton,Manchester United,Away,37.1,12,1,0,326,15,4,2,1,W
-West Ham,Manchester City,Home,24.6,8,0,0,263,6,1,0,2,L
-Manchester City,West Ham,Away,75.4,4,1,0,833,14,2,2,0,W
-Aston Villa,Everton,Home,57.5,9,4,0,517,12,4,3,1,W
-Everton,Aston Villa,Away,42.5,7,1,0,378,15,4,1,3,L
-Arsenal,Leicester,Home,49.9,15,1,0,462,19,7,4,2,W
-Leicester,Arsenal,Away,50.1,9,1,0,472,6,2,2,4,L
-Brighton,Newcastle,Home,54.5,8,2,0,374,13,7,0,0,D
-Newcastle,Brighton,Away,45.5,6,3,0,314,4,1,0,0,D
-Manchester City,Bournemouth,Home,66.7,9,0,0,696,19,7,4,0,W
-Bournemouth,Manchester City,Away,33.3,9,3,0,353,3,1,0,4,L
-Southampton,Leeds,Home,42.6,10,1,0,332,14,4,2,2,D
-Leeds,Southampton,Away,57.4,12,3,0,454,13,5,2,2,D
-Wolves,Fulham,Home,59.6,7,3,0,496,7,1,0,0,D
-Fulham,Wolves,Away,40.4,14,3,0,328,9,3,0,0,D
-Brentford,Manchester United,Home,33.3,6,0,0,255,13,7,4,0,W
-Manchester United,Brentford,Away,66.7,15,4,0,525,15,4,0,4,L
-Nottingham,West Ham,Home,43.2,10,4,0,288,13,6,1,0,W
-West Ham,Nottingham,Away,56.8,11,1,0,381,19,5,0,1,L
-Chelsea,Spurs,Home,63.7,9,3,0,597,16,3,2,2,D
-Spurs,Chelsea,Away,36.3,9,0,0,340,10,5,2,2,D
-Liverpool,Crystal Palace,Home,72.6,7,2,1,741,24,4,1,1,D
-Crystal Palace,Liverpool,Away,27.4,8,4,0,274,7,3,1,1,D
-Spurs,Wolves,Home,49.9,10,2,0,472,11,4,1,0,W
-Wolves,Spurs,Away,50.1,8,2,0,477,20,3,0,1,L
-Crystal Palace,Aston Villa,Home,50.8,16,2,0,448,17,9,3,1,W
-Aston Villa,Crystal Palace,Away,49.2,14,1,0,428,13,5,1,3,L
-Everton,Nottingham,Home,48.3,6,3,0,413,19,8,1,1,D
-Nottingham,Everton,Away,51.7,9,2,0,444,14,5,1,1,D
-Fulham,Brentford,Home,43.7,13,3,0,311,18,9,3,2,W
-Brentford,Fulham,Away,56.3,7,2,0,417,13,5,2,3,L
-Leicester,Southampton,Home,62,11,2,0,556,6,1,1,2,L
-Southampton,Leicester,Away,38,15,3,0,335,9,3,2,1,W
-Bournemouth,Arsenal,Home,41.8,12,2,0,411,6,1,0,3,L
-Arsenal,Bournemouth,Away,58.2,10,1,0,580,14,6,3,0,W
-Leeds,Chelsea,Home,39.1,16,0,0,318,12,6,3,0,W
-Chelsea,Leeds,Away,60.9,15,1,1,494,14,3,0,3,L
-West Ham,Brighton,Home,49.6,10,2,0,467,13,3,0,2,L
-Brighton,West Ham,Away,50.4,7,0,0,485,11,2,2,0,W
-Newcastle,Manchester City,Home,31.3,14,4,1,275,12,6,3,3,D
-Manchester City,Newcastle,Away,68.7,7,2,0,608,21,10,3,3,D
-Manchester United,Liverpool,Home,29.5,11,3,0,273,13,5,2,1,W
-Liverpool,Manchester United,Away,70.5,7,1,0,645,17,5,1,2,L
-Southampton,Manchester United,Home,48.3,4,0,0,364,17,5,0,1,L
-Manchester United,Southampton,Away,51.7,14,3,0,404,11,6,1,0,W
-Brentford,Everton,Home,57.8,8,2,0,514,20,5,1,1,D
-Everton,Brentford,Away,42.4,8,2,0,385,14,7,1,1,D
-Brighton,Leeds,Home,42.8,10,2,0,353,13,4,1,0,W
-Leeds,Brighton,Away,57.2,14,3,0,475,10,2,0,1,L
-Chelsea,Leicester,Home,45.1,10,1,1,446,7,4,2,1,W
-Leicester,Chelsea,Away,54.9,7,2,0,524,17,5,1,2,L
-Liverpool,Bournemouth,Home,69.4,6,0,0,681,19,12,9,0,W
-Bournemouth,Liverpool,Away,30.6,5,1,0,303,5,2,0,9,L
-Manchester City,Crystal Palace,Home,74.3,14,1,0,770,18,5,4,2,W
-Crystal Palace,Manchester City,Away,25.7,8,2,0,265,2,2,2,4,L
-Arsenal,Fulham,Home,72,6,2,0,595,22,8,2,1,W
-Fulham,Arsenal,Away,28,12,3,0,223,11,3,1,2,L
-Aston Villa,West Ham,Home,57.8,10,2,0,582,9,3,0,1,L
-West Ham,Aston Villa,Away,42.2,10,0,0,419,7,2,1,0,W
-Wolves,Newcastle,Home,36.1,10,2,0,265,10,4,1,1,D
-Newcastle,Wolves,Away,63.9,11,1,0,458,21,6,1,1,D
-Nottingham,Spurs,Home,55.3,11,6,0,568,17,1,0,2,L
-Spurs,Nottingham,Away,44.7,13,1,0,462,18,7,2,0,W
-Crystal Palace,Brentford,Home,49.3,11,1,0,467,13,4,1,1,D
-Brentford,Crystal Palace,Away,50.7,8,2,0,470,9,3,1,1,D
-Fulham,Brighton,Home,39.6,9,2,0,345,10,3,2,1,W
-Brighton,Fulham,Away,60.4,11,1,0,525,7,4,1,2,L
-Southampton,Chelsea,Home,32.3,15,2,0,254,9,7,2,1,W
-Chelsea,Southampton,Away,67.7,10,1,0,547,10,4,1,2,L
-Leeds,Everton,Home,69.6,10,3,0,637,14,5,1,1,D
-Everton,Leeds,Away,30.4,9,3,0,282,7,2,1,1,D
-Bournemouth,Wolves,Home,34,12,2,0,316,5,2,0,0,D
-Wolves,Bournemouth,Away,66,12,1,0,594,17,4,0,0,D
-Arsenal,Aston Villa,Home,59.6,10,2,0,504,22,9,2,1,W
-Aston Villa,Arsenal,Away,40.4,14,3,0,341,4,3,1,2,L
-Manchester City,Nottingham,Home,75.4,9,0,0,776,17,9,6,0,W
-Nottingham,Manchester City,Away,24.6,7,1,0,250,8,1,0,6,L
-West Ham,Spurs,Home,38.2,10,2,0,366,14,4,1,1,D
-Spurs,West Ham,Away,61.8,9,5,0,619,13,4,1,1,D
-Liverpool,Newcastle,Home,71.8,9,0,0,624,23,6,2,1,W
-Newcastle,Liverpool,Away,28.2,10,2,0,255,5,2,1,2,L
-Leicester,Manchester United,Home,53.9,7,1,0,595,10,2,0,1,L
-Manchester United,Leicester,Away,46.1,15,3,0,513,9,2,1,0,W
-Everton,Liverpool,Home,39.1,7,2,0,302,14,3,0,0,D
-Liverpool,Everton,Away,60.9,11,2,0,469,23,8,0,0,D
-Brentford,Leeds,Home,31.1,8,2,0,218,14,8,5,2,W
-Leeds,Brentford,Away,68.9,9,2,0,488,17,6,2,5,L
-Chelsea,West Ham,Home,68.1,6,4,0,661,8,3,2,1,W
-West Ham,Chelsea,Away,31.9,11,2,0,308,6,3,1,2,L
-Newcastle,Crystal Palace,Home,51.7,19,2,0,359,23,6,0,0,D
-Crystal Palace,Newcastle,Away,48.3,12,1,0,362,19,9,0,0,D
-Nottingham,Bournemouth,Home,52.7,13,2,0,486,11,3,2,3,L
-Bournemouth,Nottingham,Away,47.3,10,1,0,442,8,3,3,2,W
-Spurs,Fulham,Home,51.9,9,3,0,475,23,10,2,1,W
-Fulham,Spurs,Away,48.1,6,4,0,433,9,3,1,2,L
-Wolves,Southampton,Home,50.8,10,4,0,432,7,2,1,0,W
-Southampton,Wolves,Away,49.2,14,2,0,406,12,1,0,1,L
-Aston Villa,Manchester City,Home,27.7,7,2,0,287,3,1,1,1,D
-Manchester City,Aston Villa,Away,72.3,6,0,0,763,13,4,1,1,D
-Brighton,Leicester,Home,53.5,6,1,0,493,23,11,5,2,W
-Leicester,Brighton,Away,46.5,8,1,0,436,6,4,2,5,L
-Manchester United,Arsenal,Home,39.5,13,3,0,310,10,6,3,1,W
-Arsenal,Manchester United,Away,60.5,9,3,0,465,16,3,1,3,L
-Nottingham,Fulham,Home,40.8,11,2,0,375,11,3,2,3,L
-Fulham,Nottingham,Away,59.2,10,4,0,555,15,7,3,2,W
-Aston Villa,Southampton,Home,52.7,13,3,0,420,11,3,1,0,W
-Southampton,Aston Villa,Away,47.3,13,1,0,376,7,1,0,1,L
-Wolves,Manchester City,Home,40.8,7,2,1,422,6,1,0,3,L
-Manchester City,Wolves,Away,59.2,9,1,0,622,16,7,3,0,W
-Newcastle,Bournemouth,Home,72.4,10,2,0,643,20,7,1,1,D
-Bournemouth,Newcastle,Away,27.6,11,2,0,245,10,3,1,1,D
-Spurs,Leicester,Home,43.7,9,1,0,482,16,11,6,2,W
-Leicester,Spurs,Away,56.3,9,2,0,632,19,7,2,6,L
-Brentford,Arsenal,Home,36.1,10,0,0,321,5,2,0,3,L
-Arsenal,Brentford,Away,63.9,10,2,0,592,13,7,3,0,W
-Everton,West Ham,Home,53.6,8,3,0,464,7,2,1,0,W
-West Ham,Everton,Away,46.4,11,1,0,388,14,4,0,1,L
-Arsenal,Spurs,Home,64.7,10,2,0,565,22,9,3,1,W
-Spurs,Arsenal,Away,35.3,10,1,1,307,7,3,1,3,L
-Bournemouth,Brentford,Home,42,11,1,0,375,7,1,0,0,D
-Brentford,Bournemouth,Away,58,10,2,0,530,13,4,0,0,D
-Crystal Palace,Chelsea,Home,36,11,1,0,348,7,3,1,2,L
-Chelsea,Crystal Palace,Away,64,13,3,0,635,13,3,2,1,W
-Fulham,Newcastle,Home,31.7,9,2,1,281,3,1,1,4,L
-Newcastle,Fulham,Away,68.3,10,0,0,605,19,10,4,1,W
-Liverpool,Brighton,Home,53.8,9,1,0,530,15,7,3,3,D
-Brighton,Liverpool,Away,46.2,13,1,0,460,6,6,3,3,D
-Southampton,Everton,Home,54.2,11,2,0,445,22,6,1,2,L
-Everton,Southampton,Away,45.8,10,2,0,380,12,5,2,1,W
-West Ham,Wolves,Home,39.1,8,2,0,372,18,5,2,0,W
-Wolves,West Ham,Away,60.9,6,2,0,564,15,4,0,2,L
-Manchester City,Manchester United,Home,53.9,3,0,0,551,22,10,6,3,W
-Manchester United,Manchester City,Away,46.1,9,3,0,476,12,8,3,6,L
-Leeds,Aston Villa,Home,43.8,23,3,1,375,6,1,0,0,D
-Aston Villa,Leeds,Away,56.2,12,2,0,479,19,7,0,0,D
-Leicester,Nottingham,Home,51.6,13,2,0,492,17,7,4,0,W
-Nottingham,Leicester,Away,48.4,12,4,0,464,10,3,0,4,L
-Bournemouth,Leicester,Home,44.2,8,1,0,424,10,4,2,1,W
-Leicester,Bournemouth,Away,55.8,16,2,0,551,9,5,1,2,L
-Chelsea,Wolves,Home,57.4,8,2,0,591,20,7,3,0,W
-Wolves,Chelsea,Away,42.6,8,0,0,431,8,2,0,3,L
-Manchester City,Southampton,Home,65.2,4,0,0,744,21,8,4,0,W
-Southampton,Manchester City,Away,34.8,8,1,0,393,5,0,0,4,L
-Newcastle,Brentford,Home,54.4,13,0,0,389,16,6,5,1,W
-Brentford,Newcastle,Away,45.6,9,1,0,320,6,3,1,5,L
-Brighton,Spurs,Home,58.9,9,1,0,694,14,4,0,1,L
-Spurs,Brighton,Away,41.1,14,2,0,489,8,3,1,0,W
-Crystal Palace,Leeds,Home,54.5,13,3,0,418,13,5,2,1,W
-Leeds,Crystal Palace,Away,45.5,23,3,0,345,10,4,1,2,L
-West Ham,Fulham,Home,50.3,9,1,0,485,17,8,3,1,W
-Fulham,West Ham,Away,49.7,7,3,0,486,8,2,1,3,L
-Arsenal,Liverpool,Home,44,11,1,0,386,11,7,3,2,W
-Liverpool,Arsenal,Away,56,11,2,0,488,8,3,2,3,L
-Everton,Manchester United,Home,39.7,7,2,0,375,11,2,1,2,L
-Manchester United,Everton,Away,60.3,13,1,0,609,12,4,2,1,W
-Nottingham,Aston Villa,Home,39.9,13,3,0,333,6,3,1,1,D
-Aston Villa,Nottingham,Away,60.1,19,3,0,506,12,2,1,1,D
-Brentford,Brighton,Home,27.5,12,3,0,235,7,3,2,0,W
-Brighton,Brentford,Away,72.5,15,1,0,611,21,7,0,2,L
-Leicester,Crystal Palace,Home,53.1,18,2,0,579,14,5,0,0,D
-Crystal Palace,Leicester,Away,46.9,13,2,0,514,8,1,0,0,D
-Fulham,Bournemouth,Home,68.9,9,2,0,585,19,4,2,2,D
-Bournemouth,Fulham,Away,31.3,11,0,0,268,10,6,2,2,D
-Wolves,Nottingham,Home,58,17,2,0,435,9,2,1,0,W
-Nottingham,Wolves,Away,42,13,2,0,313,10,2,0,1,L
-Spurs,Everton,Home,61.5,12,1,0,583,21,7,2,0,W
-Everton,Spurs,Away,38.5,13,4,0,367,4,0,0,2,L
-Aston Villa,Chelsea,Home,41.1,12,0,0,353,18,7,0,2,L
-Chelsea,Aston Villa,Away,58.9,11,3,0,548,8,4,2,0,W
-Leeds,Arsenal,Home,47,10,0,0,428,16,4,0,1,L
-Arsenal,Leeds,Away,53,11,2,0,500,9,4,1,0,W
-Manchester United,Newcastle,Home,63,13,3,0,512,15,2,0,0,D
-Newcastle,Manchester United,Away,37,11,1,0,301,9,2,0,0,D
-Southampton,West Ham,Home,39.1,7,1,0,323,10,8,1,1,D
-West Ham,Southampton,Away,60.9,3,1,0,488,25,4,1,1,D
-Liverpool,Manchester City,Home,36.8,10,3,0,407,13,2,1,0,W
-Manchester City,Liverpool,Away,63.2,7,1,0,702,16,6,0,1,L
-Brighton,Nottingham,Home,70.3,10,3,0,623,19,7,0,0,D
-Nottingham,Brighton,Away,29.7,14,1,0,260,3,0,0,0,D
-Crystal Palace,Wolves,Home,51.3,14,3,0,449,14,4,2,1,W
-Wolves,Crystal Palace,Away,48.7,18,1,0,428,10,4,1,2,L
-Bournemouth,Southampton,Home,53.5,8,1,0,529,15,3,0,1,L
-Southampton,Bournemouth,Away,46.5,13,3,0,464,9,3,1,0,W
-Brentford,Chelsea,Home,33.7,7,0,0,317,8,5,0,0,D
-Chelsea,Brentford,Away,66.3,7,0,0,656,14,5,0,0,D
-Liverpool,West Ham,Home,53.8,9,0,0,600,22,7,1,0,W
-West Ham,Liverpool,Away,46.2,8,0,0,510,8,3,0,1,L
-Newcastle,Everton,Home,49.8,9,2,0,392,16,4,1,0,W
-Everton,Newcastle,Away,50.2,12,4,0,412,1,0,0,1,L
-Manchester United,Spurs,Home,51.9,7,1,0,583,28,10,2,0,W
-Spurs,Manchester United,Away,48.1,7,0,0,528,9,2,0,2,L
-Fulham,Aston Villa,Home,60.4,11,0,0,482,18,8,3,0,W
-Aston Villa,Fulham,Away,39.6,11,2,1,311,12,6,0,3,L
-Leicester,Leeds,Home,46.8,15,2,0,461,5,1,2,0,W
-Leeds,Leicester,Away,53.2,11,1,0,518,14,2,0,2,L
-Nottingham,Liverpool,Home,24.8,14,2,0,227,10,7,1,0,W
-Liverpool,Nottingham,Away,75.2,8,1,0,691,15,7,0,1,L
-Everton,Crystal Palace,Home,45.8,16,3,0,382,9,6,3,0,W
-Crystal Palace,Everton,Away,54.2,14,4,0,456,9,2,0,3,L
-Manchester City,Brighton,Home,48.4,11,1,0,446,10,4,3,1,W
-Brighton,Manchester City,Away,51.6,12,3,0,471,8,2,1,3,L
-Chelsea,Manchester United,Home,47.9,8,1,0,414,6,2,1,1,D
-Manchester United,Chelsea,Away,52.1,10,4,0,464,13,6,1,1,D
-Aston Villa,Brentford,Home,45.1,14,1,0,329,19,11,4,0,W
-Brentford,Aston Villa,Away,54.9,11,0,0,397,12,3,0,4,L
-Leeds,Fulham,Home,57.2,12,1,0,488,14,5,2,3,L
-Fulham,Leeds,Away,42.8,8,1,0,355,11,5,3,2,W
-Southampton,Arsenal,Home,40.7,11,2,0,358,10,3,1,1,D
-Arsenal,Southampton,Away,59.3,8,1,0,541,12,3,1,1,D
-Wolves,Leicester,Home,60.9,10,2,0,537,21,6,0,4,L
-Leicester,Wolves,Away,39.1,12,1,0,347,5,4,4,0,W
-Spurs,Newcastle,Home,52.4,12,4,0,457,17,5,1,2,L
-Newcastle,Spurs,Away,47.6,6,2,0,409,13,5,2,1,W
-West Ham,Bournemouth,Home,54.4,9,0,0,497,20,4,2,0,W
-Bournemouth,West Ham,Away,45.6,11,2,0,432,5,3,0,2,L
-Leicester,Manchester City,Home,35,5,0,0,370,10,5,0,1,L
-Manchester City,Leicester,Away,65,10,0,0,687,15,5,1,0,W
-Bournemouth,Spurs,Home,31.4,9,1,0,285,5,3,2,3,L
-Spurs,Bournemouth,Away,68.6,5,2,0,594,23,7,3,2,W
-Brighton,Chelsea,Home,40.6,16,1,0,331,19,9,4,1,W
-Chelsea,Brighton,Away,59.4,6,2,0,496,15,7,1,4,L
-Crystal Palace,Southampton,Home,44.7,13,3,0,392,12,3,1,0,W
-Southampton,Crystal Palace,Away,55.3,11,3,0,478,14,4,0,1,L
-Newcastle,Aston Villa,Home,60,11,1,0,494,18,7,4,0,W
-Aston Villa,Newcastle,Away,40,10,1,0,331,3,0,0,4,L
-Brentford,Wolves,Home,58.6,10,3,0,414,11,3,1,1,D
-Wolves,Brentford,Away,41.4,17,3,1,290,14,4,1,1,D
-Fulham,Everton,Home,56.7,10,2,0,454,24,6,0,0,D
-Everton,Fulham,Away,43.3,8,1,0,360,9,4,0,0,D
-Liverpool,Leeds,Home,69.1,9,0,0,672,22,10,1,2,L
-Leeds,Liverpool,Away,30.9,3,1,0,300,14,6,2,1,W
-Arsenal,Nottingham,Home,69.4,9,0,0,613,24,10,5,0,W
-Nottingham,Arsenal,Away,30.6,8,1,0,269,5,2,0,5,L
-Manchester United,West Ham,Home,53,12,1,0,482,16,3,1,0,W
-West Ham,Manchester United,Away,47,10,3,0,407,11,3,0,1,L
+Team,Opponent,Home/Away,Possession,Fouls,Yellow Cards,Red Cards,Passes,Shots,On Target,Goals,Allowed,Result,Team SPI,Opponent SPI,Team xG,Opponent xG,Team nsxG,Opponent nsxG
+Crystal Palace,Arsenal,Home,56.3,16,1,0,562,10,2,0,2,L,71.36,78.53,1.3,1.36,1.4,2.41
+Arsenal,Crystal Palace,Away,43.7,11,2,0,438,10,2,2,0,W,78.53,71.36,1.36,1.3,2.41,1.4
+Fulham,Liverpool,Home,33.1,7,2,0,294,9,3,2,2,D,58.7,90.51,1.25,2.57,0.78,1.41
+Liverpool,Fulham,Away,66.9,9,0,0,612,11,4,2,2,D,90.51,58.7,2.57,1.25,1.41,0.78
+Bournemouth,Aston Villa,Home,34.4,18,3,0,301,7,3,2,0,W,57.92,74.05,0.49,0.68,0.79,1.95
+Aston Villa,Bournemouth,Away,65.6,16,3,0,571,15,2,0,2,L,74.05,57.92,0.68,0.49,1.95,0.79
+Leeds,Wolves,Home,40.1,13,2,0,355,12,4,2,1,W,62.15,67.72,0.84,1.11,1.02,2.58
+Wolves,Leeds,Away,59.9,9,0,0,546,15,6,1,2,L,67.72,62.15,1.11,0.84,2.58,1.02
+Newcastle,Nottingham,Home,61.4,9,0,0,469,23,10,2,0,W,68.65,57.31,1.82,0.26,3.33,0.48
+Nottingham,Newcastle,Away,38.6,14,3,0,294,5,0,0,2,L,57.31,68.65,0.26,1.82,0.48,3.33
+Spurs,Southampton,Home,57.5,11,3,0,554,18,8,4,1,W,81.87,61.33,1.91,0.54,1.88,1.23
+Southampton,Spurs,Away,42.5,6,0,0,410,10,2,1,4,L,61.33,81.87,0.54,1.91,1.23,1.88
+Everton,Chelsea,Home,37.3,14,3,0,335,8,4,0,1,L,63.82,85.73,0.5,2.12,0.95,1.36
+Chelsea,Everton,Away,62.7,11,2,0,566,15,6,1,0,W,85.73,63.82,2.12,0.5,1.36,0.95
+Leicester,Brentford,Home,55.4,6,0,0,580,14,5,2,2,D,71.24,68.58,0.6,1.05,0.82,0.42
+Brentford,Leicester,Away,44.6,5,0,0,457,8,3,2,2,D,68.58,71.24,1.05,0.6,0.42,0.82
+Manchester United,Brighton,Home,62.9,7,4,0,548,17,5,1,2,L,75.25,73.74,1.7,1.68,1.91,1.35
+Brighton,Manchester United,Away,37.1,12,1,0,326,15,4,2,1,W,73.74,75.25,1.68,1.7,1.35,1.91
+West Ham,Manchester City,Home,24.6,8,0,0,263,6,1,0,2,L,70.62,92.31,0.34,2.39,0.58,1.85
+Manchester City,West Ham,Away,75.4,4,1,0,833,14,2,2,0,W,92.31,70.62,2.39,0.34,1.85,0.58
+Aston Villa,Everton,Home,57.5,9,4,0,517,12,4,3,1,W,73.64,63.68,2.38,1.54,1.96,1.06
+Everton,Aston Villa,Away,42.5,7,1,0,378,15,4,1,3,L,63.68,73.64,1.54,2.38,1.06,1.96
+Arsenal,Leicester,Home,49.9,15,1,0,462,19,7,4,2,W,79.19,70.86,2.89,0.76,2.11,0.35
+Leicester,Arsenal,Away,50.1,9,1,0,472,6,2,2,4,L,70.86,79.19,0.76,2.89,0.35,2.11
+Manchester City,Bournemouth,Home,66.7,9,0,0,696,19,7,4,0,W,92.69,58.63,1.76,0.18,2.27,0.28
+Bournemouth,Manchester City,Away,33.3,9,3,0,353,3,1,0,4,L,58.63,92.69,0.18,1.76,0.28,2.27
+Wolves,Fulham,Home,59.6,7,3,0,496,7,1,0,0,D,68.05,59.97,1.13,1.22,0.51,0.54
+Fulham,Wolves,Away,40.4,14,3,0,328,9,3,0,0,D,59.97,68.05,1.22,1.13,0.54,0.51
+Southampton,Leeds,Home,42.6,10,1,0,332,14,4,2,2,D,61.1,61.68,1.37,1.98,1.18,1.24
+Leeds,Southampton,Away,57.4,12,3,0,454,13,5,2,2,D,61.68,61.1,1.98,1.37,1.24,1.18
+Brighton,Newcastle,Home,54.5,8,2,0,374,13,7,0,0,D,74.21,70.26,1.6,0.16,1.68,0.7
+Newcastle,Brighton,Away,45.5,6,3,0,314,4,1,0,0,D,70.26,74.21,0.16,1.6,0.7,1.68
+Brentford,Manchester United,Home,33.3,6,0,0,255,13,7,4,0,W,69.12,74.6,1.52,1.28,1.03,2.24
+Manchester United,Brentford,Away,66.7,15,4,0,525,15,4,0,4,L,74.6,69.12,1.28,1.52,2.24,1.03
+Nottingham,West Ham,Home,43.2,10,4,0,288,13,6,1,0,W,55.56,70.06,2.1,2.26,1.12,1.59
+West Ham,Nottingham,Away,56.8,11,1,0,381,19,5,0,1,L,70.06,55.56,2.26,2.1,1.59,1.12
+Chelsea,Spurs,Home,63.7,9,3,0,597,16,3,2,2,D,86.03,81.93,1.85,1.8,1.8,0.9
+Spurs,Chelsea,Away,36.3,9,0,0,340,10,5,2,2,D,81.93,86.03,1.8,1.85,0.9,1.8
+Liverpool,Crystal Palace,Home,72.6,7,2,1,741,24,4,1,1,D,89.69,70.58,2.58,1.48,3.1,0.58
+Crystal Palace,Liverpool,Away,27.4,8,4,0,274,7,3,1,1,D,70.58,89.69,1.48,2.58,0.58,3.1
+Spurs,Wolves,Home,49.9,10,2,0,472,11,4,1,0,W,82.05,67.73,1.91,0.8,1.61,1.21
+Wolves,Spurs,Away,50.1,8,2,0,477,20,3,0,1,L,67.73,82.05,0.8,1.91,1.21,1.61
+Crystal Palace,Aston Villa,Home,50.8,16,2,0,448,17,9,3,1,W,71.02,73.56,3.31,0.96,1.44,0.92
+Aston Villa,Crystal Palace,Away,49.2,14,1,0,428,13,5,1,3,L,73.56,71.02,0.96,3.31,0.92,1.44
+Everton,Nottingham,Home,48.3,6,3,0,413,19,8,1,1,D,63.52,56.06,1.51,1.02,1.05,0.63
+Nottingham,Everton,Away,51.7,9,2,0,444,14,5,1,1,D,56.06,63.52,1.02,1.51,0.63,1.05
+Fulham,Brentford,Home,43.7,13,3,0,311,18,9,3,2,W,60.92,70.23,2.61,1.59,1.44,1.67
+Brentford,Fulham,Away,56.3,7,2,0,417,13,5,2,3,L,70.23,60.92,1.59,2.61,1.67,1.44
+Leicester,Southampton,Home,62,11,2,0,556,6,1,1,2,L,69.64,60.47,0.25,1.53,0.81,1.51
+Southampton,Leicester,Away,38,15,3,0,335,9,3,2,1,W,60.47,69.64,1.53,0.25,1.51,0.81
+Bournemouth,Arsenal,Home,41.8,12,2,0,411,6,1,0,3,L,58.42,79.94,0.22,1.76,1.02,1.36
+Arsenal,Bournemouth,Away,58.2,10,1,0,580,14,6,3,0,W,79.94,58.42,1.76,0.22,1.36,1.02
+Leeds,Chelsea,Home,39.1,16,0,0,318,12,6,3,0,W,62.13,85.83,2.09,0.73,0.83,1.25
+Chelsea,Leeds,Away,60.9,15,1,1,494,14,3,0,3,L,85.83,62.13,0.73,2.09,1.25,0.83
+West Ham,Brighton,Home,49.6,10,2,0,467,13,3,0,2,L,69.47,74.79,0.79,1.69,1.42,0.95
+Brighton,West Ham,Away,50.4,7,0,0,485,11,2,2,0,W,74.79,69.47,1.69,0.79,0.95,1.42
+Newcastle,Manchester City,Home,31.3,14,4,1,275,12,6,3,3,D,70.07,92.86,2.13,4.12,1.43,2.12
+Manchester City,Newcastle,Away,68.7,7,2,0,608,21,10,3,3,D,92.86,70.07,4.12,2.13,2.12,1.43
+Manchester United,Liverpool,Home,29.5,11,3,0,273,13,5,2,1,W,73.33,89.33,1.59,1.66,1.57,3.07
+Liverpool,Manchester United,Away,70.5,7,1,0,645,17,5,1,2,L,89.33,73.33,1.66,1.59,3.07,1.57
+Southampton,Manchester United,Home,48.3,4,0,0,364,17,5,0,1,L,62.32,74.01,1.59,2.33,2.18,1.42
+Manchester United,Southampton,Away,51.7,14,3,0,404,11,6,1,0,W,74.01,62.32,2.33,1.59,1.42,2.18
+Brentford,Everton,Home,57.8,8,2,0,514,20,5,1,1,D,68.85,63.29,2.37,1.68,2.01,1.31
+Everton,Brentford,Away,42.4,8,2,0,385,14,7,1,1,D,63.29,68.85,1.68,2.37,1.31,2.01
+Brighton,Leeds,Home,42.8,10,2,0,353,13,4,1,0,W,75.7,64.77,1.71,1.2,1.43,0.72
+Leeds,Brighton,Away,57.2,14,3,0,475,10,2,0,1,L,64.77,75.7,1.2,1.71,0.72,1.43
+Chelsea,Leicester,Home,45.1,10,1,1,446,7,4,2,1,W,83.97,68.04,1.68,2.22,0.66,1.89
+Leicester,Chelsea,Away,54.9,7,2,0,524,17,5,1,2,L,68.04,83.97,2.22,1.68,1.89,0.66
+Manchester City,Crystal Palace,Home,74.3,14,1,0,770,18,5,4,2,W,92,72.54,2.29,0.08,2.87,0.13
+Crystal Palace,Manchester City,Away,25.7,8,2,0,265,2,2,2,4,L,72.54,92,0.08,2.29,0.13,2.87
+Liverpool,Bournemouth,Home,69.4,6,0,0,681,19,12,9,0,W,88.83,57.47,4.47,0.25,2.85,0.61
+Bournemouth,Liverpool,Away,30.6,5,1,0,303,5,2,0,9,L,57.47,88.83,0.25,4.47,0.61,2.85
+Arsenal,Fulham,Home,72,6,2,0,595,22,8,2,1,W,80.82,61.59,2.32,0.84,2.42,0.95
+Fulham,Arsenal,Away,28,12,3,0,223,11,3,1,2,L,61.59,80.82,0.84,2.32,0.95,2.42
+Aston Villa,West Ham,Home,57.8,10,2,0,582,9,3,0,1,L,71.63,68.56,0.37,0.38,0.71,0.88
+West Ham,Aston Villa,Away,42.2,10,0,0,419,7,2,1,0,W,68.56,71.63,0.38,0.37,0.88,0.71
+Wolves,Newcastle,Home,36.1,10,2,0,265,10,4,1,1,D,68.06,71.11,1.11,2.08,0.85,2.36
+Newcastle,Wolves,Away,63.9,11,1,0,458,21,6,1,1,D,71.11,68.06,2.08,1.11,2.36,0.85
+Nottingham,Spurs,Home,55.3,11,6,0,568,17,1,0,2,L,56.48,81.93,0.88,2.52,1.62,1.18
+Spurs,Nottingham,Away,44.7,13,1,0,462,18,7,2,0,W,81.93,56.48,2.52,0.88,1.18,1.62
+Crystal Palace,Brentford,Home,49.3,11,1,0,467,13,4,1,1,D,72.21,68.71,0.67,1.74,0.72,1.61
+Brentford,Crystal Palace,Away,50.7,8,2,0,470,9,3,1,1,D,68.71,72.21,1.74,0.67,1.61,0.72
+Fulham,Brighton,Home,39.6,9,2,0,345,10,3,2,1,W,61.65,75.83,0.87,1.74,0.71,0.94
+Brighton,Fulham,Away,60.4,11,1,0,525,7,4,1,2,L,75.83,61.65,1.74,0.87,0.94,0.71
+Southampton,Chelsea,Home,32.3,15,2,0,254,9,7,2,1,W,62.31,82.74,1.44,1.46,0.92,1.33
+Chelsea,Southampton,Away,67.7,10,1,0,547,10,4,1,2,L,82.74,62.31,1.46,1.44,1.33,0.92
+Leeds,Everton,Home,69.6,10,3,0,637,14,5,1,1,D,64.87,63.27,1.23,0.82,1.43,0.43
+Everton,Leeds,Away,30.4,9,3,0,282,7,2,1,1,D,63.27,64.87,0.82,1.23,0.43,1.43
+Bournemouth,Wolves,Home,34,12,2,0,316,5,2,0,0,D,54.75,66.89,0.37,1.63,0.95,2.23
+Wolves,Bournemouth,Away,66,12,1,0,594,17,4,0,0,D,66.89,54.75,1.63,0.37,2.23,0.95
+Manchester City,Nottingham,Home,75.4,9,0,0,776,17,9,6,0,W,92.1,56.56,3.59,0.85,2.11,0.59
+Nottingham,Manchester City,Away,24.6,7,1,0,250,8,1,0,6,L,56.56,92.1,0.85,3.59,0.59,2.11
+Arsenal,Aston Villa,Home,59.6,10,2,0,504,22,9,2,1,W,80.63,71.11,2.93,0.27,2.37,0.39
+Aston Villa,Arsenal,Away,40.4,14,3,0,341,4,3,1,2,L,71.11,80.63,0.27,2.93,0.39,2.37
+West Ham,Spurs,Home,38.2,10,2,0,366,14,4,1,1,D,69.66,81.93,1.3,0.72,0.68,0.92
+Spurs,West Ham,Away,61.8,9,5,0,619,13,4,1,1,D,81.93,69.66,0.72,1.3,0.92,0.68
+Liverpool,Newcastle,Home,71.8,9,0,0,624,23,6,2,1,W,90.03,72.1,1.58,0.62,2.99,0.75
+Newcastle,Liverpool,Away,28.2,10,2,0,255,5,2,1,2,L,72.1,90.03,0.62,1.58,0.75,2.99
+Leicester,Manchester United,Home,53.9,7,1,0,595,10,2,0,1,L,69.54,74.09,0.67,0.98,0.68,1.21
+Manchester United,Leicester,Away,46.1,15,3,0,513,9,2,1,0,W,74.09,69.54,0.98,0.67,1.21,0.68
+Everton,Liverpool,Home,39.1,7,2,0,302,14,3,0,0,D,63.25,89.99,1.38,1.58,0.99,2.27
+Liverpool,Everton,Away,60.9,11,2,0,469,23,8,0,0,D,89.99,63.25,1.58,1.38,2.27,0.99
+Brentford,Leeds,Home,31.1,8,2,0,218,14,8,5,2,W,69.93,65.21,2.68,1.66,0.87,2.03
+Leeds,Brentford,Away,68.9,9,2,0,488,17,6,2,5,L,65.21,69.93,1.66,2.68,2.03,0.87
+Nottingham,Bournemouth,Home,52.7,13,2,0,486,11,3,2,3,L,56.03,53.98,1.43,0.91,1.07,1.11
+Bournemouth,Nottingham,Away,47.3,10,1,0,442,8,3,3,2,W,53.98,56.03,0.91,1.43,1.11,1.07
+Newcastle,Crystal Palace,Home,51.7,19,2,0,359,23,6,0,0,D,72.21,71.2,3.09,0.97,2.57,0.98
+Crystal Palace,Newcastle,Away,48.3,12,1,0,362,19,9,0,0,D,71.2,72.21,0.97,3.09,0.98,2.57
+Spurs,Fulham,Home,51.9,9,3,0,475,23,10,2,1,W,81.56,62.08,3.55,0.41,2.47,0.42
+Fulham,Spurs,Away,48.1,6,4,0,433,9,3,1,2,L,62.08,81.56,0.41,3.55,0.42,2.47
+Wolves,Southampton,Home,50.8,10,4,0,432,7,2,1,0,W,67.98,63.48,1.03,1.27,0.77,1.74
+Southampton,Wolves,Away,49.2,14,2,0,406,12,1,0,1,L,63.48,67.98,1.27,1.03,1.74,0.77
+Chelsea,West Ham,Home,68.1,6,4,0,661,8,3,2,1,W,81.87,70.37,1,1.09,0.77,0.38
+West Ham,Chelsea,Away,31.9,11,2,0,308,6,3,1,2,L,70.37,81.87,1.09,1,0.38,0.77
+Aston Villa,Manchester City,Home,27.7,7,2,0,287,3,1,1,1,D,70.15,92.24,0.24,2.17,0.37,1.99
+Manchester City,Aston Villa,Away,72.3,6,0,0,763,13,4,1,1,D,92.24,70.15,2.17,0.24,1.99,0.37
+Brighton,Leicester,Home,53.5,6,1,0,493,23,11,5,2,W,75.43,69.07,2.75,1.16,2.06,0.61
+Leicester,Brighton,Away,46.5,8,1,0,436,6,4,2,5,L,69.07,75.43,1.16,2.75,0.61,2.06
+Manchester United,Arsenal,Home,39.5,13,3,0,310,10,6,3,1,W,74.96,81.4,2.06,1.59,1.01,1.82
+Arsenal,Manchester United,Away,60.5,9,3,0,465,16,3,1,3,L,81.4,74.96,1.59,2.06,1.82,1.01
+Nottingham,Fulham,Home,40.8,11,2,0,375,11,3,2,3,L,54.98,61.45,1.68,1.49,0.74,1.15
+Fulham,Nottingham,Away,59.2,10,4,0,555,15,7,3,2,W,61.45,54.98,1.49,1.68,1.15,0.74
+Aston Villa,Southampton,Home,52.7,13,3,0,420,11,3,1,0,W,70.24,64.15,1.18,0.34,1.25,0.49
+Southampton,Aston Villa,Away,47.3,13,1,0,376,7,1,0,1,L,64.15,70.24,0.34,1.18,0.49,1.25
+Wolves,Manchester City,Home,40.8,7,2,1,422,6,1,0,3,L,67.59,92.7,0.34,1.49,0.6,2.01
+Manchester City,Wolves,Away,59.2,9,1,0,622,16,7,3,0,W,92.7,67.59,1.49,0.34,2.01,0.6
+Newcastle,Bournemouth,Home,72.4,10,2,0,643,20,7,1,1,D,73.17,54.41,1.54,0.98,2.14,0.47
+Bournemouth,Newcastle,Away,27.6,11,2,0,245,10,3,1,1,D,54.41,73.17,0.98,1.54,0.47,2.14
+Spurs,Leicester,Home,43.7,9,1,0,482,16,11,6,2,W,81.87,67.43,2.45,1.78,1.6,1.18
+Leicester,Spurs,Away,56.3,9,2,0,632,19,7,2,6,L,67.43,81.87,1.78,2.45,1.18,1.6
+Brentford,Arsenal,Home,36.1,10,0,0,321,5,2,0,3,L,69.8,80.58,0.56,1.26,0.99,1.62
+Arsenal,Brentford,Away,63.9,10,2,0,592,13,7,3,0,W,80.58,69.8,1.26,0.56,1.62,0.99
+Everton,West Ham,Home,53.6,8,3,0,464,7,2,1,0,W,63.99,70.99,0.37,0.8,0.95,0.94
+West Ham,Everton,Away,46.4,11,1,0,388,14,4,0,1,L,70.99,63.99,0.8,0.37,0.94,0.95
+Arsenal,Spurs,Home,64.7,10,2,0,565,22,9,3,1,W,81.54,81.7,2.27,1.57,2.61,0.59
+Spurs,Arsenal,Away,35.3,10,1,1,307,7,3,1,3,L,81.7,81.54,1.57,2.27,0.59,2.61
+Bournemouth,Brentford,Home,42,11,1,0,375,7,1,0,0,D,54.73,68.79,0.76,1.03,0.92,1.41
+Brentford,Bournemouth,Away,58,10,2,0,530,13,4,0,0,D,68.79,54.73,1.03,0.76,1.41,0.92
+Crystal Palace,Chelsea,Home,36,11,1,0,348,7,3,1,2,L,70.22,81.29,0.77,1.4,0.48,1.74
+Chelsea,Crystal Palace,Away,64,13,3,0,635,13,3,2,1,W,81.29,70.22,1.4,0.77,1.74,0.48
+Southampton,Everton,Home,54.2,11,2,0,445,22,6,1,2,L,63.89,64.35,2.24,2.01,2.19,1.6
+Everton,Southampton,Away,45.8,10,2,0,380,12,5,2,1,W,64.35,63.89,2.01,2.24,1.6,2.19
+Fulham,Newcastle,Home,31.7,9,2,1,281,3,1,1,4,L,61.68,72.93,0.68,4.1,0.74,2.23
+Newcastle,Fulham,Away,68.3,10,0,0,605,19,10,4,1,W,72.93,61.68,4.1,0.68,2.23,0.74
+Liverpool,Brighton,Home,53.8,9,1,0,530,15,7,3,3,D,89.02,76.31,2.95,2.15,2.29,1.03
+Brighton,Liverpool,Away,46.2,13,1,0,460,6,6,3,3,D,76.31,89.02,2.15,2.95,1.03,2.29
+West Ham,Wolves,Home,39.1,8,2,0,372,18,5,2,0,W,71.11,67.2,0.93,0.65,0.68,1.32
+Wolves,West Ham,Away,60.9,6,2,0,564,15,4,0,2,L,67.2,71.11,0.65,0.93,1.32,0.68
+Manchester City,Manchester United,Home,53.9,3,0,0,551,22,10,6,3,W,92.98,75.94,3.2,1.71,2.82,0.71
+Manchester United,Manchester City,Away,46.1,9,3,0,476,12,8,3,6,L,75.94,92.98,1.71,3.2,0.71,2.82
+Leeds,Aston Villa,Home,43.8,23,3,1,375,6,1,0,0,D,64.72,70.97,0.3,2.18,0.68,1.7
+Aston Villa,Leeds,Away,56.2,12,2,0,479,19,7,0,0,D,70.97,64.72,2.18,0.3,1.7,0.68
+Leicester,Nottingham,Home,51.6,13,2,0,492,17,7,4,0,W,67.13,54.25,1.25,1.47,1.09,0.98
+Nottingham,Leicester,Away,48.4,12,4,0,464,10,3,0,4,L,54.25,67.13,1.47,1.25,0.98,1.09
+Bournemouth,Leicester,Home,44.2,8,1,0,424,10,4,2,1,W,54.89,67.58,1.34,1.16,1.23,1.11
+Leicester,Bournemouth,Away,55.8,16,2,0,551,9,5,1,2,L,67.58,54.89,1.16,1.34,1.11,1.23
+Manchester City,Southampton,Home,65.2,4,0,0,744,21,8,4,0,W,93.14,63.19,2.54,0.13,2.25,0.1
+Southampton,Manchester City,Away,34.8,8,1,0,393,5,0,0,4,L,63.19,93.14,0.13,2.54,0.1,2.25
+Newcastle,Brentford,Home,54.4,13,0,0,389,16,6,5,1,W,74.82,69.24,2,1.12,1.58,1.08
+Brentford,Newcastle,Away,45.6,9,1,0,320,6,3,1,5,L,69.24,74.82,1.12,2,1.08,1.58
+Chelsea,Wolves,Home,57.4,8,2,0,591,20,7,3,0,W,82.45,67.1,2.31,0.81,2.09,1
+Wolves,Chelsea,Away,42.6,8,0,0,431,8,2,0,3,L,67.1,82.45,0.81,2.31,1,2.09
+Brighton,Spurs,Home,58.9,9,1,0,694,14,4,0,1,L,76.83,81.04,0.95,0.99,2.75,0.77
+Spurs,Brighton,Away,41.1,14,2,0,489,8,3,1,0,W,81.04,76.83,0.99,0.95,0.77,2.75
+Crystal Palace,Leeds,Home,54.5,13,3,0,418,13,5,2,1,W,69.63,63.69,1.67,1.08,1.06,1.55
+Leeds,Crystal Palace,Away,45.5,23,3,0,345,10,4,1,2,L,63.69,69.63,1.08,1.67,1.55,1.06
+West Ham,Fulham,Home,50.3,9,1,0,485,17,8,3,1,W,72.18,59.05,3.36,0.57,1.26,0.71
+Fulham,West Ham,Away,49.7,7,3,0,486,8,2,1,3,L,59.05,72.18,0.57,3.36,0.71,1.26
+Arsenal,Liverpool,Home,44,11,1,0,386,11,7,3,2,W,82.84,88.53,2.67,0.76,1.71,0.83
+Liverpool,Arsenal,Away,56,11,2,0,488,8,3,2,3,L,88.53,82.84,0.76,2.67,0.83,1.71
+Everton,Manchester United,Home,39.7,7,2,0,375,11,2,1,2,L,64.51,76.09,0.59,1.59,1.32,1.31
+Manchester United,Everton,Away,60.3,13,1,0,609,12,4,2,1,W,76.09,64.51,1.59,0.59,1.31,1.32
+Nottingham,Aston Villa,Home,39.9,13,3,0,333,6,3,1,1,D,53.76,72.32,0.26,0.85,0.75,1.18
+Aston Villa,Nottingham,Away,60.1,19,3,0,506,12,2,1,1,D,72.32,53.76,0.85,0.26,1.18,0.75
+Brentford,Brighton,Home,27.5,12,3,0,235,7,3,2,0,W,68.08,77.17,1.87,2.14,1.12,2.99
+Brighton,Brentford,Away,72.5,15,1,0,611,21,7,0,2,L,77.17,68.08,2.14,1.87,2.99,1.12
+Leicester,Crystal Palace,Home,53.1,18,2,0,579,14,5,0,0,D,66.66,69.49,1,0.35,1.45,0.72
+Crystal Palace,Leicester,Away,46.9,13,2,0,514,8,1,0,0,D,69.49,66.66,0.35,1,0.72,1.45
+Fulham,Bournemouth,Home,68.9,9,2,0,585,19,4,2,2,D,57.95,55.78,1.89,1.56,1.77,0.83
+Bournemouth,Fulham,Away,31.3,11,0,0,268,10,6,2,2,D,55.78,57.95,1.56,1.89,0.83,1.77
+Wolves,Nottingham,Home,58,17,2,0,435,9,2,1,0,W,66.42,53.85,1.21,1.32,0.98,1.02
+Nottingham,Wolves,Away,42,13,2,0,313,10,2,0,1,L,53.85,66.42,1.32,1.21,1.02,0.98
+Spurs,Everton,Home,61.5,12,1,0,583,21,7,2,0,W,80.73,64.26,3.16,0.49,2.05,0.23
+Everton,Spurs,Away,38.5,13,4,0,367,4,0,0,2,L,64.26,80.73,0.49,3.16,0.23,2.05
+Aston Villa,Chelsea,Home,41.1,12,0,0,353,18,7,0,2,L,72.59,84.03,2.31,1.16,1.33,0.84
+Chelsea,Aston Villa,Away,58.9,11,3,0,548,8,4,2,0,W,84.03,72.59,1.16,2.31,0.84,1.33
+Southampton,West Ham,Home,39.1,7,1,0,323,10,8,1,1,D,62.66,72.68,0.51,1.82,0.57,1.43
+West Ham,Southampton,Away,60.9,3,1,0,488,25,4,1,1,D,72.68,62.66,1.82,0.51,1.43,0.57
+Leeds,Arsenal,Home,47,10,0,0,428,16,4,0,1,L,63.75,83.54,2.14,0.79,1.27,0.77
+Arsenal,Leeds,Away,53,11,2,0,500,9,4,1,0,W,83.54,63.75,0.79,2.14,0.77,1.27
+Manchester United,Newcastle,Home,63,13,3,0,512,15,2,0,0,D,77.1,75.6,1.41,0.85,1.64,1.33
+Newcastle,Manchester United,Away,37,11,1,0,301,9,2,0,0,D,75.6,77.1,0.85,1.41,1.33,1.64
+Liverpool,Manchester City,Home,36.8,10,3,0,407,13,2,1,0,W,88.56,93.1,2.22,1.11,0.87,2.29
+Manchester City,Liverpool,Away,63.2,7,1,0,702,16,6,0,1,L,93.1,88.56,1.11,2.22,2.29,0.87
+Brighton,Nottingham,Home,70.3,10,3,0,623,19,7,0,0,D,76.82,54.47,2.1,0.15,2.23,0.23
+Nottingham,Brighton,Away,29.7,14,1,0,260,3,0,0,0,D,54.47,76.82,0.15,2.1,0.23,2.23
+Crystal Palace,Wolves,Home,51.3,14,3,0,449,14,4,2,1,W,69.64,66.05,1.44,0.9,1.46,1
+Wolves,Crystal Palace,Away,48.7,18,1,0,428,10,4,1,2,L,66.05,69.64,0.9,1.44,1,1.46
+Bournemouth,Southampton,Home,53.5,8,1,0,529,15,3,0,1,L,55.57,61.9,1,1.08,2.26,1.08
+Southampton,Bournemouth,Away,46.5,13,3,0,464,9,3,1,0,W,61.9,55.57,1.08,1,1.08,2.26
+Liverpool,West Ham,Home,53.8,9,0,0,600,22,7,1,0,W,88.82,73.54,2.35,2.54,1.37,0.89
+West Ham,Liverpool,Away,46.2,8,0,0,510,8,3,0,1,L,73.54,88.82,2.54,2.35,0.89,1.37
+Newcastle,Everton,Home,49.8,9,2,0,392,16,4,1,0,W,75.89,63.43,1.15,0.1,1.61,0.56
+Everton,Newcastle,Away,50.2,12,4,0,412,1,0,0,1,L,63.43,75.89,0.1,1.15,0.56,1.61
+Brentford,Chelsea,Home,33.7,7,0,0,317,8,5,0,0,D,68.29,83.67,1.27,0.56,1.24,2
+Chelsea,Brentford,Away,66.3,7,0,0,656,14,5,0,0,D,83.67,68.29,0.56,1.27,2,1.24
+Manchester United,Spurs,Home,51.9,7,1,0,583,28,10,2,0,W,77.12,81.52,1.72,0.9,2.2,1.18
+Spurs,Manchester United,Away,48.1,7,0,0,528,9,2,0,2,L,81.52,77.12,0.9,1.72,1.18,2.2
+Fulham,Aston Villa,Home,60.4,11,0,0,482,18,8,3,0,W,57.65,73.01,2.95,0.79,1.12,1.14
+Aston Villa,Fulham,Away,39.6,11,2,1,311,12,6,0,3,L,73.01,57.65,0.79,2.95,1.14,1.12
+Leicester,Leeds,Home,46.8,15,2,0,461,5,1,2,0,W,67.12,64.88,0.62,1.09,0.56,1
+Leeds,Leicester,Away,53.2,11,1,0,518,14,2,0,2,L,64.88,67.12,1.09,0.62,1,0.56
+Nottingham,Liverpool,Home,24.8,14,2,0,227,10,7,1,0,W,54.34,88.2,2.72,2.56,0.7,2.48
+Liverpool,Nottingham,Away,75.2,8,1,0,691,15,7,0,1,L,88.2,54.34,2.56,2.72,2.48,0.7
+Everton,Crystal Palace,Home,45.8,16,3,0,382,9,6,3,0,W,63.24,69.88,1.66,0.72,0.89,0.8
+Crystal Palace,Everton,Away,54.2,14,4,0,456,9,2,0,3,L,69.88,63.24,0.72,1.66,0.8,0.89
+Manchester City,Brighton,Home,48.4,11,1,0,446,10,4,3,1,W,92.97,77.37,1.98,0.54,1.72,0.77
+Brighton,Manchester City,Away,51.6,12,3,0,471,8,2,1,3,L,77.37,92.97,0.54,1.98,0.77,1.72
+Chelsea,Manchester United,Home,47.9,8,1,0,414,6,2,1,1,D,83.41,78.28,1.37,0.78,0.83,1.11
+Manchester United,Chelsea,Away,52.1,10,4,0,464,13,6,1,1,D,78.28,83.41,0.78,1.37,1.11,0.83
+Aston Villa,Brentford,Home,45.1,14,1,0,329,19,11,4,0,W,70.96,68.99,3.75,1.19,1.3,0.75
+Brentford,Aston Villa,Away,54.9,11,0,0,397,12,3,0,4,L,68.99,70.96,1.19,3.75,0.75,1.3
+Leeds,Fulham,Home,57.2,12,1,0,488,14,5,2,3,L,65.1,59.78,2.01,2.65,1.65,1.47
+Fulham,Leeds,Away,42.8,8,1,0,355,11,5,3,2,W,59.78,65.1,2.65,2.01,1.47,1.65
+Southampton,Arsenal,Home,40.7,11,2,0,358,10,3,1,1,D,61.97,83.77,0.58,1.7,0.74,1.22
+Arsenal,Southampton,Away,59.3,8,1,0,541,12,3,1,1,D,83.77,61.97,1.7,0.58,1.22,0.74
+Wolves,Leicester,Home,60.9,10,2,0,537,21,6,0,4,L,65.6,67.32,1.92,1,2.12,0.83
+Leicester,Wolves,Away,39.1,12,1,0,347,5,4,4,0,W,67.32,65.6,1,1.92,0.83,2.12
+Spurs,Newcastle,Home,52.4,12,4,0,457,17,5,1,2,L,80.52,76.45,2.2,1.03,1.69,1.8
+Newcastle,Spurs,Away,47.6,6,2,0,409,13,5,2,1,W,76.45,80.52,1.03,2.2,1.8,1.69
+West Ham,Bournemouth,Home,54.4,9,0,0,497,20,4,2,0,W,74.5,55.68,2,0.49,1.48,0.95
+Bournemouth,West Ham,Away,45.6,11,2,0,432,5,3,0,2,L,55.68,74.5,0.49,2,0.95,1.48
+Leicester,Manchester City,Home,35,5,0,0,370,10,5,0,1,L,67.99,92.91,0.78,0.83,0.67,2.15
+Manchester City,Leicester,Away,65,10,0,0,687,15,5,1,0,W,92.91,67.99,0.83,0.78,2.15,0.67
+Bournemouth,Spurs,Home,31.4,9,1,0,285,5,3,2,3,L,55.35,79.92,0.9,2.59,0.84,2.4
+Spurs,Bournemouth,Away,68.6,5,2,0,594,23,7,3,2,W,79.92,55.35,2.59,0.9,2.4,0.84
+Newcastle,Aston Villa,Home,60,11,1,0,494,18,7,4,0,W,76.98,72.9,4.08,0.31,2.03,0.45
+Aston Villa,Newcastle,Away,40,10,1,0,331,3,0,0,4,L,72.9,76.98,0.31,4.08,0.45,2.03
+Crystal Palace,Southampton,Home,44.7,13,3,0,392,12,3,1,0,W,68.49,62.31,1.05,1.34,1,1.52
+Southampton,Crystal Palace,Away,55.3,11,3,0,478,14,4,0,1,L,62.31,68.49,1.34,1.05,1.52,1
+Brighton,Chelsea,Home,40.6,16,1,0,331,19,9,4,1,W,77.49,83.75,2.32,1.16,1.14,1.59
+Chelsea,Brighton,Away,59.4,6,2,0,496,15,7,1,4,L,83.75,77.49,1.16,2.32,1.59,1.14
+Brentford,Wolves,Home,58.6,10,3,0,414,11,3,1,1,D,66.48,64.62,1.36,0.65,1.42,0.81
+Wolves,Brentford,Away,41.4,17,3,1,290,14,4,1,1,D,64.62,66.48,0.65,1.36,0.81,1.42
+Fulham,Everton,Home,56.7,10,2,0,454,24,6,0,0,D,60.57,64.69,2.17,1.15,2.37,0.84
+Everton,Fulham,Away,43.3,8,1,0,360,9,4,0,0,D,64.69,60.57,1.15,2.17,0.84,2.37
+Liverpool,Leeds,Home,69.1,9,0,0,672,22,10,1,2,L,87.61,63.74,2.34,1.63,2.21,0.93
+Leeds,Liverpool,Away,30.9,3,1,0,300,14,6,2,1,W,63.74,87.61,1.63,2.34,0.93,2.21
+Arsenal,Nottingham,Home,69.4,9,0,0,613,24,10,5,0,W,83.5,56.08,3,0.26,3.39,0.43
+Nottingham,Arsenal,Away,30.6,8,1,0,269,5,2,0,5,L,56.08,83.5,0.26,3,0.43,3.39
+Manchester United,West Ham,Home,53,12,1,0,482,16,3,1,0,W,80.47,75.02,1.7,1.12,1.68,0.9
+West Ham,Manchester United,Away,47,10,3,0,407,11,3,0,1,L,75.02,80.47,1.12,1.7,0.9,1.68

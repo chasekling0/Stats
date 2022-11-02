@@ -18,10 +18,6 @@ class Team:
         self.attributes = {}
         self.generate_attributes()
 
-        # print(name)
-        # for key, value in self.attributes.items():
-        #     print(str(key) + " : " + str(value))
-
     def __str__(self):
         '''basic string representation of the class'''
         return str(self.name) + "\n" + str(self.results)
@@ -216,6 +212,3 @@ class Team:
             away_target_goals_conc)
         self.attributes["AwayGoalConcStd"] = std(
             away_target_goals_conc)
-
-    # TODO - way to save results to the results field
-    # TODO - update attributes based on generated games

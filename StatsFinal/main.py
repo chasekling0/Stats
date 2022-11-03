@@ -8,7 +8,7 @@ from team import Team
 
 start_time = time.time()
 results_data = pd.read_csv(
-    "./StatsFinalData.csv")
+    "./data/StatsFinalData.csv")
 
 # use model for average statistics to fivethirtyeight rankings
 # have model for football database ranking to result / goals
@@ -35,6 +35,7 @@ for i in range(100):
         opp_results = results_data.loc[(
             results_data["Opponent"] == team_name)].dropna(axis=1, how='all').reset_index()
         team_objects[team_name] = Team(team_name, results, opp_results)
+        print(team_name, team_objects[team_name].attributes)
 
     match_engine = MatchEngine(team_objects)
 

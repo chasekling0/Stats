@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.svm import SVR
 
 results_data = pd.read_csv(
-    "./StatsFinalData.csv")
+    "./data/StatsFinalData.csv")
 
 x_data = results_data.drop(["Team", "Opponent", "Home/Away", "Result"], axis=1)
 y_data = results_data["Goals"]

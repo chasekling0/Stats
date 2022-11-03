@@ -7,7 +7,7 @@ from sklearn.model_selection import GridSearchCV, train_test_split
 from team import Team
 
 results_data = pd.read_csv(
-    "./StatsFinalData.csv")
+    "./data/StatsFinalData.csv")
 team_names = results_data["Team"].unique()
 team_objects = {}
 for i, team_name in enumerate(team_names):

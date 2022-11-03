@@ -8,7 +8,7 @@ from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.tree import plot_tree
 
 results_data = pd.read_csv(
-    "./StatsFinalData.csv")
+    "./data/StatsFinalData.csv")
 
 feature = results_data.drop(
     ["Team", "Opponent", "Home/Away", "Result", "Goals", "Allowed"], axis=1)

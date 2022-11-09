@@ -14,6 +14,8 @@ results_data = pd.read_csv(
 # have model for football database ranking to result / goals
 # update model game by game
 
+results_data.drop(["Team SPI", "Opponent SPI", "Team xG",
+                  "Team nsxG", "Opponent xG", "Opponent nsxG"], inplace=True, axis=1)
 
 team_names = results_data["Team"].unique()
 
@@ -25,22 +27,22 @@ all_standings = pd.DataFrame(columns=all_header)
 arsenal_stats = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession", "Fouls",
                              "Yellow Cards", "Red Cards", "Passes", "Shots", "On Target", "Goals", "Allowed", "Result"])
 
-for i in range(100):
+for i in range(20):
     # set up the seasons
     print("Season #" + str(i+1))
     team_objects = {}
     for i, team_name in enumerate(team_names):
+        # print(team_name)
         results = results_data.loc[(
             results_data["Team"] == team_name)].dropna(axis=1, how='all').reset_index()
         opp_results = results_data.loc[(
             results_data["Opponent"] == team_name)].dropna(axis=1, how='all').reset_index()
         team_objects[team_name] = Team(team_name, results, opp_results)
-        print(team_name, team_objects[team_name].attributes)
 
     match_engine = MatchEngine(team_objects)
 
     remaining_schedule = pd.read_csv(
-        "./RemainingSchedule.csv")
+        "./data/RemainingSchedule.csv")
 
     # simulate the seasons
     for row_tuple in remaining_schedule.itertuples():
@@ -79,7 +81,7 @@ other_stats = pd.DataFrame(columns=[
 arsenal_averages = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession", "Fouls",
                                          "Yellow Cards", "Red Cards", "Passes", "Shots", "On Target", "Goals", "Allowed", "Win %", "Draw %", "Loss %"])
 
-final = open("./ResultData.txt", "w", encoding='UTF-8')
+final = open("./data/ResultData.txt", "w", encoding='UTF-8')
 for i, team in enumerate(team_names):
     results = all_standings.loc[(all_standings["Team"] == team)]
     best_result = results.loc[(

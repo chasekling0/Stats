@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.feature_selection import SelectFromModel
 from sklearn.model_selection import (GridSearchCV, RandomizedSearchCV,
                                      train_test_split)
@@ -57,7 +57,7 @@ nsxg_result = list(results_data["Team nsxG"])
 
 goal_data = results_data.drop(
     ["Result", "Goals", "Allowed", "Red Cards",
-        "Yellow Cards", "Fouls", "Home/Away", "Opponent", "Opponent xG", "Opponent nsxG"], axis=1)
+        "Yellow Cards", "Fouls", "Home/Away", "Opponent", "Opponent xG", "Opponent nsxG", "On Target", "Passes", "Possession", "Shots"], axis=1)
 goal_result = list(results_data["Goals"])
 allowed_data = list(results_data["Allowed"])
 
@@ -77,7 +77,7 @@ print(stats.pearsonr(xg_result, goal_result))
 print(goal_data)
 
 xGd_train, xGd_test, xGr_train, xGr_test = train_test_split(
-    xG_data, xg_result, test_size=0.2, random_state=42)
+    xG_data, nsxg_result, test_size=0.2, random_state=42)
 
 g_train, g_test, gr_train, gr_test = train_test_split(
     goal_data, goal_result, test_size=0.2, random_state=42)
@@ -90,8 +90,8 @@ rfr.fit(xGd_train, xGr_train)
 print(sorted(zip(map(lambda x: round(x, 4), rfr.feature_importances_), names), reverse=True))
 
 names = goal_data.columns
-gfr = RandomForestRegressor(max_depth=100, max_features='sqrt',
-                            min_samples_leaf=3, min_samples_split=2, n_estimators=2000, bootstrap=False)
+gfr = RandomForestClassifier(max_depth=100, max_features='sqrt',
+                             min_samples_leaf=3, min_samples_split=2, n_estimators=2000, bootstrap=False)
 gfr.fit(g_train, gr_train)
 print(sorted(zip(map(lambda x: round(x, 4), gfr.feature_importances_), names), reverse=True))
 
@@ -129,8 +129,8 @@ print(sorted(zip(map(lambda x: round(x, 4), gfr.feature_importances_), names), r
 def evaluate(model, test_features, test_labels):
     print("True Values: ", test_labels)
     predictions = model.predict(test_features)
-    predictions = [round(x) for x in predictions]
     print("Pred Values: ", predictions)
+    predictions = [x + 1 for x in predictions]
     test_labels = [y + 1 for y in test_labels]
     errors = abs(np.subtract(predictions, test_labels))
     mape = 100 * np.mean(errors / (test_labels))
@@ -142,7 +142,7 @@ def evaluate(model, test_features, test_labels):
     return accuracy
 
 
-# rfr_accuracy = evaluate(rfr, xGd_test, xGr_test)
+rfr_accuracy = evaluate(rfr, xGd_test, xGr_test)
 gfr_accuracy = evaluate(gfr, g_test, gr_test)
 # best_random = rf_grid.best_estimator_
 # random_accuracy = evaluate(best_random, x_test, g_test)

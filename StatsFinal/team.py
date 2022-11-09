@@ -66,6 +66,28 @@ class Team:
         self.generate_all_shot_stats()
         self.generate_goal_stats()
         self.generate_defensive_stats()
+        # self.generate_efficiency()
+
+    def generate_efficiency(self):
+        self.home_oe = self.attributes["AvgScoredHome"] / \
+            self.attributes["AvgHomensxG"]
+        self.away_oe = self.attributes["AvgScoredAway"] / \
+            self.attributes["AvgAwaynsxG"]
+
+        self.home_de = self.attributes["AvgHomeGoalsConc"] / \
+            self.attributes["AvgHomensxGConc"]
+        self.away_de = self.attributes["AvgAwayGoalsConc"] / \
+            self.attributes["AvgAwaynsxGConc"]
+
+        self.home_overall = round(self.home_oe / self.home_de, 3)
+        self.away_overall = round(self.away_oe / self.away_de, 3)
+
+        print(self.home_oe)
+        print(self.away_oe)
+        print(self.home_de)
+        print(self.away_de)
+        print(self.home_overall)
+        print(self.away_overall)
 
     def generate_possession_stats(self):
         # home possession attributes
@@ -148,17 +170,17 @@ class Team:
             away_shots_on_target_ratio)
         self.attributes["AwayOnTargetStd"] = std(away_shots_on_target_ratio)
 
-        # home xG
-        self.attributes["AvgHomexG"] = average(self.home_games["Team xG"])
+        # # home xG
+        # self.attributes["AvgHomexG"] = average(self.home_games["Team xG"])
 
-        # home nsxG
-        self.attributes["AvgHomensxG"] = average(self.home_games["Team nsxG"])
+        # # home nsxG
+        # self.attributes["AvgHomensxG"] = average(self.home_games["Team nsxG"])
 
-        # away xG
-        self.attributes["AvgAwayxG"] = average(self.away_games["Team xG"])
+        # # away xG
+        # self.attributes["AvgAwayxG"] = average(self.away_games["Team xG"])
 
-        # away nsxG
-        self.attributes["AvgAwaynsxG"] = average(self.away_games["Team nsxG"])
+        # # away nsxG
+        # self.attributes["AvgAwaynsxG"] = average(self.away_games["Team nsxG"])
 
     def generate_goal_stats(self):
         # home goals attributes
@@ -174,6 +196,12 @@ class Team:
         self.attributes["AvgAwayGoalsPerTarget"] = average(
             away_goals_ratio)
         self.attributes["AwayGoalsPerTargetStd"] = std(away_goals_ratio)
+
+        # avg home scored
+        self.attributes["AvgScoredHome"] = average(self.home_games["Goals"])
+
+        # avg away scored
+        self.attributes["AvgScoredAway"] = average(self.away_games["Goals"])
 
     def generate_defensive_stats(self):
 
@@ -225,18 +253,26 @@ class Team:
         self.attributes["AwayGoalConcStd"] = std(
             away_target_goals_conc)
 
-        # home xG conceded
-        self.attributes["AvgHomexGConc"] = average(
-            self.home_games["Opponent xG"])
+        # # home conceded
+        # self.attributes["AvgHomeGoalsConc"] = average(
+        #     self.home_games["Allowed"])
 
-        # home nsxG conceded
-        self.attributes["AvgHomensxGConc"] = average(
-            self.home_games["Opponent nsxG"])
+        # # away conceded
+        # self.attributes["AvgAwayGoalsConc"] = average(
+        #     self.away_games["Allowed"])
 
-        # away xG conceded
-        self.attributes["AvgAwayxGConc"] = average(
-            self.away_games["Opponent xG"])
+        # # home xG conceded
+        # self.attributes["AvgHomexGConc"] = average(
+        #     self.home_games["Opponent xG"])
 
-        # away nsxG conceded
-        self.attributes["AvgAwaynsxGConc"] = average(
-            self.away_games["Opponent nsxG"])
+        # # home nsxG conceded
+        # self.attributes["AvgHomensxGConc"] = average(
+        #     self.home_games["Opponent nsxG"])
+
+        # # away xG conceded
+        # self.attributes["AvgAwayxGConc"] = average(
+        #     self.away_games["Opponent xG"])
+
+        # # away nsxG conceded
+        # self.attributes["AvgAwaynsxGConc"] = average(
+        #     self.away_games["Opponent nsxG"])

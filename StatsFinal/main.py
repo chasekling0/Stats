@@ -27,7 +27,7 @@ all_standings = pd.DataFrame(columns=all_header)
 arsenal_stats = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession", "Fouls",
                              "Yellow Cards", "Red Cards", "Passes", "Shots", "On Target", "Goals", "Allowed", "Result"])
 
-for i in range(20):
+for i in range(1):
     # set up the seasons
     print("Season #" + str(i+1))
     team_objects = {}

@@ -8,11 +8,12 @@ from numpy import average, std
 class Team:
     '''class to hold and update team attributes'''
 
-    def __init__(self, name, results, opposition_results) -> None:
+    def __init__(self, name, results, opposition_results, rank) -> None:
         '''initialize and generate attributes based on results'''
         self.name = name
         self.results: pd.DataFrame = results
         self.opp: pd.DataFrame = opposition_results
+        self.spi = rank
         # print(name)
         # print(str(opposition_results))
         self.attributes = {}
@@ -170,17 +171,21 @@ class Team:
             away_shots_on_target_ratio)
         self.attributes["AwayOnTargetStd"] = std(away_shots_on_target_ratio)
 
-        # # home xG
-        # self.attributes["AvgHomexG"] = average(self.home_games["Team xG"])
+        # home xG
+        self.attributes["AvgHomexG"] = average(self.home_games["Team xG"])
+        self.attributes["HomexGStd"] = std(self.home_games["Team xG"])
 
-        # # home nsxG
-        # self.attributes["AvgHomensxG"] = average(self.home_games["Team nsxG"])
+        # home nsxG
+        self.attributes["AvgHomensxG"] = average(self.home_games["Team nsxG"])
+        self.attributes["HomensxGStd"] = std(self.home_games["Team nsxG"])
 
-        # # away xG
-        # self.attributes["AvgAwayxG"] = average(self.away_games["Team xG"])
+        # away xG
+        self.attributes["AvgAwayxG"] = average(self.away_games["Team xG"])
+        self.attributes["AwayxGStd"] = std(self.away_games["Team xG"])
 
-        # # away nsxG
-        # self.attributes["AvgAwaynsxG"] = average(self.away_games["Team nsxG"])
+        # away nsxG
+        self.attributes["AvgAwaynsxG"] = average(self.away_games["Team nsxG"])
+        self.attributes["AwaynsxGStd"] = std(self.away_games["Team nsxG"])
 
     def generate_goal_stats(self):
         # home goals attributes
@@ -253,26 +258,32 @@ class Team:
         self.attributes["AwayGoalConcStd"] = std(
             away_target_goals_conc)
 
-        # # home conceded
-        # self.attributes["AvgHomeGoalsConc"] = average(
-        #     self.home_games["Allowed"])
+        # home conceded
+        self.attributes["AvgHomeGoalsConc"] = average(
+            self.home_games["Allowed"])
 
-        # # away conceded
-        # self.attributes["AvgAwayGoalsConc"] = average(
-        #     self.away_games["Allowed"])
+        # away conceded
+        self.attributes["AvgAwayGoalsConc"] = average(
+            self.away_games["Allowed"])
 
-        # # home xG conceded
-        # self.attributes["AvgHomexGConc"] = average(
-        #     self.home_games["Opponent xG"])
+        # home xG conceded
+        self.attributes["AvgHomexGConc"] = average(
+            self.home_games["Opponent xG"])
+        self.attributes["HomeXgConcStd"] = std(self.home_games["Opponent xG"])
 
-        # # home nsxG conceded
-        # self.attributes["AvgHomensxGConc"] = average(
-        #     self.home_games["Opponent nsxG"])
+        # home nsxG conceded
+        self.attributes["AvgHomensxGConc"] = average(
+            self.home_games["Opponent nsxG"])
+        self.attributes["HomensXgConcStd"] = std(
+            self.home_games["Opponent nsxG"])
 
-        # # away xG conceded
-        # self.attributes["AvgAwayxGConc"] = average(
-        #     self.away_games["Opponent xG"])
+        # away xG conceded
+        self.attributes["AvgAwayxGConc"] = average(
+            self.away_games["Opponent xG"])
+        self.attributes["AwayXgConcStd"] = std(self.away_games["Opponent xG"])
 
-        # # away nsxG conceded
-        # self.attributes["AvgAwaynsxGConc"] = average(
-        #     self.away_games["Opponent nsxG"])
+        # away nsxG conceded
+        self.attributes["AvgAwaynsxGConc"] = average(
+            self.away_games["Opponent nsxG"])
+        self.attributes["AwaynsXgConcStd"] = std(
+            self.away_games["Opponent nsxG"])

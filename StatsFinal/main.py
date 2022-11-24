@@ -14,10 +14,33 @@ results_data = pd.read_csv(
 # have model for football database ranking to result / goals
 # update model game by game
 
-results_data.drop(["Team SPI", "Opponent SPI", "Team xG",
-                  "Team nsxG", "Opponent xG", "Opponent nsxG"], inplace=True, axis=1)
+# results_data.drop(["Team SPI", "Opponent SPI", "Team xG",
+#                   "Team nsxG", "Opponent xG", "Opponent nsxG"], inplace=True, axis=1)
 
 team_names = results_data["Team"].unique()
+
+spi_start = {
+    "Manchester City": 91.2,
+    "Liverpool": 86.4,
+    "Arsenal": 85.9,
+    "Chelsea": 81,
+    "Manchester United": 80,
+    "Newcastle": 79.9,
+    "Spurs": 79.4,
+    "Brighton": 78.2,
+    "West Ham": 73.8,
+    "Aston Villa": 72.2,
+    "Leicester": 70.2,
+    "Crystal Palace": 69.5,
+    "Brentford": 68.3,
+    "Leeds": 65.1,
+    "Southampton": 63.2,
+    "Wolves": 62.9,
+    "Fulham": 62,
+    "Everton": 60.7,
+    "Bournemouth": 56.6,
+    "Nottingham": 55.3,
+}
 
 header = ["Team", "Played", "Wins", "Draws", "Losses",
           "Points", "Goals For", "Goals Against", "Goal Difference"]
@@ -27,19 +50,19 @@ all_standings = pd.DataFrame(columns=all_header)
 arsenal_stats = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession", "Fouls",
                              "Yellow Cards", "Red Cards", "Passes", "Shots", "On Target", "Goals", "Allowed", "Result"])
 
-for i in range(1):
+for i in range(10):
     # set up the seasons
     print("Season #" + str(i+1))
     team_objects = {}
     for i, team_name in enumerate(team_names):
-        # print(team_name)
         results = results_data.loc[(
             results_data["Team"] == team_name)].dropna(axis=1, how='all').reset_index()
         opp_results = results_data.loc[(
             results_data["Opponent"] == team_name)].dropna(axis=1, how='all').reset_index()
-        team_objects[team_name] = Team(team_name, results, opp_results)
+        team_objects[team_name] = Team(
+            team_name, results, opp_results, spi_start[team_name])
 
-    match_engine = MatchEngine(team_objects)
+    match_engine = MatchEngine(team_objects, results_data)
 
     remaining_schedule = pd.read_csv(
         "./data/RemainingSchedule.csv")

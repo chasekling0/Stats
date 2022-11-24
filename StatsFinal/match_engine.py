@@ -1,5 +1,6 @@
 import math
 
+import numpy as np
 from numpy import average, random, std
 from scipy.stats import poisson as poisson
 
@@ -9,15 +10,25 @@ import team
 class MatchEngine:
     '''simulation engine for matches'''
 
-    def __init__(self, team_list):
+    def __init__(self, team_list, results_data):
         '''initialize with team information for simulation'''
 
         self.team_information = team_list
+        self.results_data = results_data.reset_index()
 
     def simulate_match(self, home_name, away_name):
         '''pass in two team names, return result'''
         self.home_team = self.team_information[home_name]
         self.away_team = self.team_information[away_name]
+
+        spi_diff = np.array(self.results_data["SPI Difference"])
+        xg_gen = np.array(self.results_data["Team xG"])
+        nsxg_gen = np.array(self.results_data["Team nsxG"])
+
+        self.xg_gen_model = np.poly1d(
+            np.polyfit(spi_diff, xg_gen, deg=3))
+        self.nsxg_gen_model = np.poly1d(
+            np.polyfit(spi_diff, nsxg_gen, deg=3))
 
         # TODO - fouls should utilize red and yellow cards, do not for now
         home_fouls, away_fouls = self.get_fouls()
@@ -26,29 +37,44 @@ class MatchEngine:
         home_shots, away_shots = self.get_shots(home_passes, away_passes)
         home_on_target, away_on_target = self.get_shots_on_target(
             home_shots, away_shots)
+        home_xG, home_nsxG, away_xG, away_nsxG = self.get_xgs()
         home_goals, away_goals = self.get_goals(
-            home_on_target, away_on_target)
+            home_on_target, away_on_target, home_xG, home_nsxG, away_xG, away_nsxG)
 
-        print(home_name + " " + str(home_goals) +
-              "-" + str(away_goals) + " " + away_name)
+        # print(home_name + " " + str(home_goals) +
+        #       "-" + str(away_goals) + " " + away_name)
 
         score = home_goals - away_goals
         home_result, away_result = self.determine_winner(score)
 
         home_output = [0, home_name, away_name, "Home", home_poss, home_fouls, 0, 0,
-                       home_passes, home_shots, home_on_target, home_goals, away_goals, home_result]
+                       home_passes, home_shots, home_on_target, home_goals, away_goals, home_result, self.home_team.spi, self.away_team.spi, self.home_team.spi - self.away_team.spi, home_xG, away_xG, home_nsxG, away_nsxG, home_xG + home_nsxG, away_xG + away_nsxG]
         away_output = [0, away_name, home_name, "Away", away_poss, away_fouls, 0, 0,
-                       away_passes, away_shots, away_on_target, away_goals, home_goals, away_result]
+                       away_passes, away_shots, away_on_target, away_goals, home_goals, away_result, self.away_team.spi, self.home_team.spi, self.away_team.spi - self.home_team.spi, away_xG, home_xG, away_nsxG, home_nsxG, away_xG + away_nsxG, home_xG + home_nsxG]
 
         self.home_team.update_results(home_output, away_output)
         self.away_team.update_results(away_output, home_output)
 
+        self.results_data.loc[len(self.results_data.index)] = home_output
+        self.results_data.loc[len(self.results_data.index)] = away_output
+
     def determine_winner(self, score):
+        home_spi = self.home_team.spi
+        away_spi = self.away_team.spi
+        home_adj = home_spi / 100.00
+        away_adj = away_spi / 100.00
+
         if score > 0:
+            self.home_team.spi += away_adj
+            self.away_team.spi -= home_adj
             return 'W', 'L'
         elif score == 0:
+            self.home_team.spi += away_adj / 2.0
+            self.away_team.spi += home_adj / 2.0
             return 'D', 'D'
         elif score < 0:
+            self.home_team.spi -= away_adj
+            self.away_team.spi += home_adj
             return 'L', 'W'
 
     def get_fouls(self):
@@ -65,16 +91,32 @@ class MatchEngine:
 
         return home_fouls, away_fouls
 
-    def get_goals(self, home_on_target, away_on_target):
+    def get_goals(self, home_on_target, away_on_target, home_xg, home_nsxg, away_xg, away_nsxg):
         '''generates total number of shots a team makes in a game'''
 
-        home_avg_goals, home_goals_std, home_goals_def, home_goals_def_std, home_played = self.home_team.attributes[
+        home_avg_scored, home_avg_goals, home_goals_std, home_goals_def, home_goals_def_std, home_played = self.home_team.attributes["AvgScoredHome"], self.home_team.attributes[
             "AvgHomeGoalsPerTarget"], self.home_team.attributes["HomeGoalsPerTargetStd"], self.home_team.attributes[
                 "AvgHomeGoalConc"], self.home_team.attributes["HomeGoalConcStd"], self.home_team.attributes["HomePlayed"]
 
-        away_avg_goals, away_goals_std, away_goals_def, away_goals_def_std, away_played = self.away_team.attributes[
+        away_avg_scored, away_avg_goals, away_goals_std, away_goals_def, away_goals_def_std, away_played = self.away_team.attributes["AvgScoredAway"], self.away_team.attributes[
             "AvgAwayGoalsPerTarget"], self.away_team.attributes["AwayGoalsPerTargetStd"], self.away_team.attributes[
             "AvgAwayGoalConc"], self.away_team.attributes["AwayGoalConcStd"], self.away_team.attributes["AwayPlayed"]
+
+        home_avg_xg = self.home_team.attributes["AvgHomexG"]
+        home_avg_nsxg = self.home_team.attributes["AvgHomensxG"]
+        home_avg_xg_conc = self.home_team.attributes["AvgHomexGConc"]
+        home_avg_nsxg_conc = self.home_team.attributes["AvgHomensxGConc"]
+
+        away_avg_xg = self.away_team.attributes["AvgAwayxG"]
+        away_avg_nsxg = self.away_team.attributes["AvgAwaynsxG"]
+        away_avg_xg_conc = self.away_team.attributes["AvgAwayxGConc"]
+        away_avg_nsxg_conc = self.away_team.attributes["AvgAwaynsxGConc"]
+
+        home_conversion = home_avg_scored / (home_avg_xg + home_avg_nsxg)
+        away_conversion = away_avg_scored / (away_avg_xg + away_avg_nsxg)
+
+        home_defense = home_goals_def / (home_avg_xg_conc + home_avg_nsxg_conc)
+        away_defense = away_goals_def / (away_avg_xg_conc + away_avg_nsxg_conc)
 
         home_extra_goal_avg = home_avg_goals - away_goals_def
         home_extra_goal_std = math.sqrt((math.pow(home_goals_std, 2) / (home_played - 1)) +
@@ -90,44 +132,104 @@ class MatchEngine:
         away_goal_per_target = away_avg_goals - \
             random.normal(away_extra_goal_avg, away_extra_goal_std)
 
+        # goals based on conversion of shots
         home_xGoals = home_goal_per_target * home_on_target
         away_xGoals = away_goal_per_target * away_on_target
+
+        # goals based on conversion of xG
+        home_x_goals = home_conversion * (home_xg + home_nsxg)
+        home_x_allowed = home_defense * (away_xg + away_nsxg)
+
+        away_x_goals = away_conversion * (away_xg + away_nsxg)
+        away_x_allowed = away_defense * (home_xg + home_nsxg)
+
+        home_xGoals = average(
+            [(home_xGoals * 1.5) + (home_x_goals * 0.5), away_x_allowed])
+        away_xGoals = average(
+            [(away_xGoals * 1.5) + (away_x_goals * 0.5), home_x_allowed])
 
         goal_values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         home_prob = []
         away_prob = []
 
-        for i, val in enumerate(goal_values):
-            home_val = poisson.pmf(k=val, mu=home_xGoals) * 1000
-            away_val = poisson.pmf(k=val, mu=away_xGoals) * 1000
-            if not math.isnan(home_val):
-                home_prob.append(round(home_val))
-            else:
-                home_prob.append(0)
-            if not math.isnan(away_val):
-                away_prob.append(round(away_val))
-            else:
-                away_prob.append(0)
+        def get_goals(home_xGoals, away_xGoals):
+            for i, val in enumerate(goal_values):
+                home_val = poisson.pmf(k=val, mu=home_xGoals) * 1000
+                away_val = poisson.pmf(k=val, mu=away_xGoals) * 1000
+                if not math.isnan(home_val):
+                    home_prob.append(round(home_val))
+                else:
+                    home_prob.append(0)
+                if not math.isnan(away_val):
+                    away_prob.append(round(away_val))
+                else:
+                    away_prob.append(0)
 
-        random_home = random.normal(470, 50)
-        random_away = random.normal(470, 50)
+            random_home = random.normal(470, 50)
+            random_away = random.normal(470, 50)
 
-        total = 0
-        home_goals, away_goals = 0, 0
-        for i, prob in enumerate(home_prob):
-            total += prob
-            if random_home <= total:
-                home_goals = goal_values[i]
-                break
+            total = 0
+            home_goals, away_goals = 0, 0
+            for i, prob in enumerate(home_prob):
+                total += prob
+                if random_home <= total:
+                    home_goals = goal_values[i]
+                    break
 
-        total = 0
-        for i, prob in enumerate(away_prob):
-            total += prob
-            if random_away <= total:
-                away_goals = goal_values[i]
-                break
+            total = 0
+            for i, prob in enumerate(away_prob):
+                total += prob
+                if random_away <= total:
+                    away_goals = goal_values[i]
+                    break
+
+            return home_goals, away_goals
+
+        home_goals, away_goals = get_goals(home_xGoals, away_xGoals)
+        if home_goals == away_goals:
+            home_goals, away_goals = get_goals(home_xGoals, away_xGoals)
 
         return home_goals, away_goals
+
+    def get_xgs(self):
+        home_spi = self.home_team.spi
+        away_spi = self.away_team.spi
+        home_diff = home_spi - away_spi
+        away_diff = away_spi - home_spi
+
+        home_xg = self.xg_gen_model(home_diff)
+        home_nsxg = self.nsxg_gen_model(home_diff)
+        away_xg = self.xg_gen_model(away_diff)
+        away_nsxg = self.nsxg_gen_model(away_diff)
+
+        home_avg_xg = self.home_team.attributes["AvgHomexG"]
+        home_xg_std = self.home_team.attributes["HomexGStd"]
+        home_avg_nsxg = self.home_team.attributes["AvgHomensxG"]
+        home_nsxg_std = self.home_team.attributes["HomensxGStd"]
+        home_avg_xg_conc = self.home_team.attributes["AvgHomexGConc"]
+        home_xg_conc_std = self.home_team.attributes["HomeXgConcStd"]
+        home_avg_nsxg_conc = self.home_team.attributes["AvgHomensxGConc"]
+        home_nsxg_conc_std = self.home_team.attributes["HomensXgConcStd"]
+
+        away_avg_xg = self.away_team.attributes["AvgAwayxG"]
+        away_xg_std = self.away_team.attributes["AwayxGStd"]
+        away_avg_nsxg = self.away_team.attributes["AvgAwaynsxG"]
+        away_nsxg_std = self.away_team.attributes["AwaynsxGStd"]
+        away_avg_xg_conc = self.away_team.attributes["AvgAwayxGConc"]
+        away_xg_conc_std = self.away_team.attributes["AwayXgConcStd"]
+        away_avg_nsxg_conc = self.away_team.attributes["AvgAwaynsxGConc"]
+        away_nsxg_conc_std = self.away_team.attributes["AwaynsXgConcStd"]
+
+        home_xg_final = average(
+            [home_xg, random.normal(home_avg_xg, home_xg_std), random.normal(away_avg_xg_conc, away_xg_conc_std)])
+        home_nsxg_final = average(
+            [home_nsxg, random.normal(home_avg_nsxg, home_nsxg_std), random.normal(away_avg_nsxg_conc, away_nsxg_conc_std)])
+        away_xg_final = average([away_xg, random.normal(
+            away_avg_xg, away_xg_std), random.normal(home_avg_xg_conc, home_xg_conc_std)])
+        away_nsxg_final = average(
+            [away_nsxg, random.normal(away_avg_nsxg, away_nsxg_std), random.normal(home_avg_nsxg_conc, home_nsxg_conc_std)])
+
+        return home_xg_final, home_nsxg_final, away_xg_final, away_nsxg_final
 
     def get_shots_on_target(self, home_shots, away_shots):
         '''generates total number of shots a team makes in a game'''

@@ -9,13 +9,7 @@ from team import Team
 start_time = time.time()
 results_data = pd.read_csv(
     "./data/StatsFinalData.csv")
-
-# use model for average statistics to fivethirtyeight rankings
-# have model for football database ranking to result / goals
-# update model game by game
-
-# results_data.drop(["Team SPI", "Opponent SPI", "Team xG",
-#                   "Team nsxG", "Opponent xG", "Opponent nsxG"], inplace=True, axis=1)
+results_data.drop(["Fouls", "Yellow Cards", "Red Cards"], inplace=True, axis=1)
 
 team_names = results_data["Team"].unique()
 
@@ -47,25 +41,26 @@ header = ["Team", "Played", "Wins", "Draws", "Losses",
 all_header = ["Rank", *header]
 all_standings = pd.DataFrame(columns=all_header)
 
-arsenal_stats = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession", "Fouls",
-                             "Yellow Cards", "Red Cards", "Passes", "Shots", "On Target", "Goals", "Allowed", "Result"])
+arsenal_stats = pd.DataFrame(columns=["Team", "Opponent", "Home/Away",
+                             "Possession", "Passes", "Shots", "On Target", "Goals", "Allowed", "Result"])
 
-for i in range(10):
+remaining_schedule = pd.read_csv(
+    "./data/RemainingSchedule.csv")
+
+team_objects = {}
+for i, team_name in enumerate(team_names):
+    results = results_data.loc[(
+        results_data["Team"] == team_name)].dropna(axis=1, how='all').reset_index()
+    opp_results = results_data.loc[(
+        results_data["Opponent"] == team_name)].dropna(axis=1, how='all').reset_index()
+    team_objects[team_name] = Team(
+        team_name, results, opp_results, spi_start[team_name])
+
+match_engine = MatchEngine(team_objects, results_data)
+
+for i in range(100):
     # set up the seasons
     print("Season #" + str(i+1))
-    team_objects = {}
-    for i, team_name in enumerate(team_names):
-        results = results_data.loc[(
-            results_data["Team"] == team_name)].dropna(axis=1, how='all').reset_index()
-        opp_results = results_data.loc[(
-            results_data["Opponent"] == team_name)].dropna(axis=1, how='all').reset_index()
-        team_objects[team_name] = Team(
-            team_name, results, opp_results, spi_start[team_name])
-
-    match_engine = MatchEngine(team_objects, results_data)
-
-    remaining_schedule = pd.read_csv(
-        "./data/RemainingSchedule.csv")
 
     # simulate the seasons
     for row_tuple in remaining_schedule.itertuples():
@@ -88,21 +83,22 @@ for i in range(10):
     for index, row in team_objects["Arsenal"].results.iterrows():
         arsenal_stats.loc[(len(arsenal_stats.index))
                           ] = row
-    # print(team_objects["Arsenal"].results)
-    # print(standings.to_string())
 
     # add table results to tracker
     standings.insert(0, "Rank", standings.index)
     for index, row in standings.iterrows():
         all_standings.loc[(len(all_standings.index))] = row
 
+    for i, team in enumerate(team_names):
+        team_objects[team].reset_team()
+
 avg_table = pd.DataFrame(columns=all_header)
 best_table = pd.DataFrame(columns=all_header)
 worst_table = pd.DataFrame(columns=all_header)
 other_stats = pd.DataFrame(columns=[
                            "Team", "Champions", "CL Qual", "EL Qual", "ECL Qual", "Last In", "Relegated", "Bottom"])
-arsenal_averages = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession", "Fouls",
-                                         "Yellow Cards", "Red Cards", "Passes", "Shots", "On Target", "Goals", "Allowed", "Win %", "Draw %", "Loss %"])
+arsenal_averages = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession",
+                                "Passes", "Shots", "On Target", "Goals", "Allowed", "Win %", "Draw %", "Loss %"])
 
 final = open("./data/ResultData.txt", "w", encoding='UTF-8')
 for i, team in enumerate(team_names):
@@ -154,8 +150,8 @@ for i, team in enumerate(opponents):
     arsenal_home = team_results.loc[(team_results["Home/Away"] == "Home")]
     arsenal_away = team_results.loc[(team_results["Home/Away"] == "Away")]
 
-    headers = ["Possession", "Fouls", "Yellow Cards", "Red Cards",
-               "Passes", "Shots", "On Target", "Goals", "Allowed"]
+    headers = ["Possession", "Passes", "Shots",
+               "On Target", "Goals", "Allowed"]
 
     home_row = ["Arsenal", team, "Home"]
     away_row = ["Arsenal", team, "Away"]

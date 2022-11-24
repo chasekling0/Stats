@@ -1,3 +1,4 @@
+import copy
 import math
 from operator import truediv
 
@@ -11,11 +12,10 @@ class Team:
     def __init__(self, name, results, opposition_results, rank) -> None:
         '''initialize and generate attributes based on results'''
         self.name = name
-        self.results: pd.DataFrame = results
-        self.opp: pd.DataFrame = opposition_results
-        self.spi = rank
-        # print(name)
-        # print(str(opposition_results))
+        self.base_results = [results, opposition_results, rank]
+        self.results: pd.DataFrame = copy.deepcopy(results)
+        self.opp: pd.DataFrame = copy.deepcopy(opposition_results)
+        self.spi = copy.deepcopy(rank)
         self.attributes = {}
         self.generate_attributes()
 
@@ -24,6 +24,7 @@ class Team:
         return str(self.name) + "\n" + str(self.results)
 
     def final_standing(self):
+        '''Generates final standings for a team's results'''
         games_played = len(self.results)
         match_results = self.results["Result"].value_counts()
         wins = match_results._get_value("W")
@@ -36,11 +37,16 @@ class Team:
 
         return [self.name, games_played, wins, draws, losses, points, goals_for, goals_conceded, goal_difference]
 
+    def reset_team(self):
+        '''resets team at the conclusion of a simulated season'''
+        self.results = copy.deepcopy(self.base_results[0])
+        self.opp = copy.deepcopy(self.base_results[1])
+        self.spi = copy.deepcopy(self.base_results[2])
+        self.generate_attributes()
+
     def update_results(self, team_result, opp_result):
         self.results.loc[len(self.results.index)] = team_result
         self.opp.loc[len(self.opp.index)] = opp_result
-
-        self.attributes.clear()
         self.generate_attributes()
 
     def generate_attributes(self):
@@ -67,28 +73,20 @@ class Team:
         self.generate_all_shot_stats()
         self.generate_goal_stats()
         self.generate_defensive_stats()
-        # self.generate_efficiency()
+        self.generate_efficiency()
 
     def generate_efficiency(self):
         self.home_oe = self.attributes["AvgScoredHome"] / \
-            self.attributes["AvgHomensxG"]
+            (self.attributes["AvgHomensxG"] + self.attributes["AvgHomexG"])
         self.away_oe = self.attributes["AvgScoredAway"] / \
-            self.attributes["AvgAwaynsxG"]
+            (self.attributes["AvgAwaynsxG"] + self.attributes["AvgAwayxG"])
 
         self.home_de = self.attributes["AvgHomeGoalsConc"] / \
-            self.attributes["AvgHomensxGConc"]
+            (self.attributes["AvgHomensxGConc"] +
+             self.attributes["AvgHomexGConc"])
         self.away_de = self.attributes["AvgAwayGoalsConc"] / \
-            self.attributes["AvgAwaynsxGConc"]
-
-        self.home_overall = round(self.home_oe / self.home_de, 3)
-        self.away_overall = round(self.away_oe / self.away_de, 3)
-
-        print(self.home_oe)
-        print(self.away_oe)
-        print(self.home_de)
-        print(self.away_de)
-        print(self.home_overall)
-        print(self.away_overall)
+            (self.attributes["AvgAwaynsxGConc"] +
+             self.attributes["AvgAwayxGConc"])
 
     def generate_possession_stats(self):
         # home possession attributes
@@ -100,34 +98,6 @@ class Team:
         self.attributes["AvgAwayPoss"] = average(self.away_games["Possession"])
         self.attributes["AwayPossVar"] = self.away_games["Possession"].var()
         self.attributes["AwayPlayed"] = len(self.away_games)
-
-        # home fouls attributes
-        self.attributes["AvgHomeFouls"] = average(self.home_games["Fouls"])
-        self.attributes["HomeFoulsStd"] = self.home_games["Fouls"].std()
-
-        home_yellow_per_foul = list(map(truediv, list(
-            self.home_games["Yellow Cards"]), list(self.home_games["Fouls"].replace(0, 1))))
-        self.attributes["AvgHomeYellow"] = average(home_yellow_per_foul)
-        self.attributes["HomeYellowStd"] = std(home_yellow_per_foul)
-
-        home_red_per_foul = list(map(truediv, list(
-            self.home_games["Red Cards"]), list(self.home_games["Fouls"].replace(0, 1))))
-        self.attributes["AvgHomeRed"] = average(home_red_per_foul)
-        self.attributes["HomeRedStd"] = std(home_red_per_foul)
-
-        # away fouls attributes
-        self.attributes["AvgAwayFouls"] = average(self.away_games["Fouls"])
-        self.attributes["AwayFoulsStd"] = self.away_games["Fouls"].std()
-
-        away_yellow_per_foul = list(map(truediv, list(
-            self.away_games["Yellow Cards"]), list(self.away_games["Fouls"].replace(0, 1))))
-        self.attributes["AvgAwayYellow"] = average(away_yellow_per_foul)
-        self.attributes["AwayYellowStd"] = std(away_yellow_per_foul)
-
-        away_red_per_foul = list(map(truediv, list(
-            self.away_games["Red Cards"]), list(self.away_games["Fouls"].replace(0, 1))))
-        self.attributes["AvgAwayRed"] = average(away_red_per_foul)
-        self.attributes["AwayRedStd"] = std(away_red_per_foul)
 
     def generate_pass_stats(self):
         # home pass attributes
@@ -204,9 +174,11 @@ class Team:
 
         # avg home scored
         self.attributes["AvgScoredHome"] = average(self.home_games["Goals"])
+        self.attributes["HomeScoredStd"] = std(self.home_games["Goals"])
 
         # avg away scored
         self.attributes["AvgScoredAway"] = average(self.away_games["Goals"])
+        self.attributes["AwayScoredStd"] = std(self.away_games["Goals"])
 
     def generate_defensive_stats(self):
 
@@ -261,9 +233,13 @@ class Team:
         # home conceded
         self.attributes["AvgHomeGoalsConc"] = average(
             self.home_games["Allowed"])
+        self.attributes["HomeGoalsConcStd"] = std(
+            self.home_games["Allowed"])
 
         # away conceded
         self.attributes["AvgAwayGoalsConc"] = average(
+            self.away_games["Allowed"])
+        self.attributes["AwayGoalsConcStd"] = std(
             self.away_games["Allowed"])
 
         # home xG conceded

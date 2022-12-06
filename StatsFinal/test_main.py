@@ -18,6 +18,7 @@ from sklearn.model_selection import (GridSearchCV, RandomizedSearchCV,
 # classifier model based on difference of SPI and W/D/L
 # potentially create a MVP of this and see if there is space to add more detail
 
+# cluster based on SPI difference and then choose some other attribute to determine xG from?
 
 results_data = pd.read_csv(
     "./data/StatsFinalData.csv")
@@ -29,10 +30,10 @@ results_data.sort_values(by="Team xG")
 
 # results_data = results_data.loc[(results_data["Team"] == "Brighton")]
 
-xg_result = np.array(results_data["On Target"])
-goal_result = np.array(results_data["Team xG"])
+xg_result = np.array(results_data["SPI Difference"])
+goal_result = np.array(results_data["Team nsxG"])
 # xg_result = np.array([round(a/5) * 5 for a in xg_result])
-goal_result = np.array([round(a, 2) for a in goal_result])
+# goal_result = np.array([round(a, 2) for a in goal_result])
 print(xg_result)
 f1 = interpolate.interp1d(xg_result, goal_result)
 poly = np.poly1d(np.polyfit(xg_result, goal_result, deg=3))
@@ -66,9 +67,9 @@ plt.scatter(xg_result, goal_result, color='b')
 #     mean_prediction + 1.96 * std_prediction,
 #     alpha=0.5
 # )
-plt.title("SPI Difference vs Total xG Generated, All Teams")
+plt.title("SPI Difference vs Total nsxG Generated, All Teams")
 plt.xlabel("SPI Difference")
-plt.ylabel("Total xG Generated")
+plt.ylabel("Total nsxG Generated")
 plt.plot(polyline, poly(polyline))
 plt.show()
 

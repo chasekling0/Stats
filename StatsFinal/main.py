@@ -1,7 +1,7 @@
 import time
 
 import pandas as pd
-from numpy import average
+from numpy import average, std
 
 from match_engine import MatchEngine
 from team import Team
@@ -38,7 +38,9 @@ spi_start = {
 
 header = ["Team", "Played", "Wins", "Draws", "Losses",
           "Points", "Goals For", "Goals Against", "Goal Difference"]
-all_header = ["Rank", *header]
+all_header = ["Rank", "Team", "Played", "Wins", "Draws", "Losses",
+              "Points", "Points SD", "Goals For", "Goals Against", "Goal Difference"]
+other_header = ["Rank", *header]
 all_standings = pd.DataFrame(columns=all_header)
 
 arsenal_stats = pd.DataFrame(columns=["Team", "Opponent", "Home/Away",
@@ -58,7 +60,7 @@ for i, team_name in enumerate(team_names):
 
 match_engine = MatchEngine(team_objects, results_data)
 
-for i in range(100):
+for i in range(1):
     # set up the seasons
     print("Season #" + str(i+1))
 
@@ -93,8 +95,8 @@ for i in range(100):
         team_objects[team].reset_team()
 
 avg_table = pd.DataFrame(columns=all_header)
-best_table = pd.DataFrame(columns=all_header)
-worst_table = pd.DataFrame(columns=all_header)
+best_table = pd.DataFrame(columns=other_header)
+worst_table = pd.DataFrame(columns=other_header)
 other_stats = pd.DataFrame(columns=[
                            "Team", "Champions", "CL Qual", "EL Qual", "ECL Qual", "Last In", "Relegated", "Bottom"])
 arsenal_averages = pd.DataFrame(columns=["Team", "Opponent", "Home/Away", "Possession",
@@ -114,11 +116,12 @@ for i, team in enumerate(team_names):
     draws = round(average(results["Draws"]), 1)
     losses = round(average(results["Losses"]), 1)
     points = round(average(results["Points"]), 1)
+    point_std = round(std([int(x) for x in results["Points"]]), 2)
     goals_for = round(average(results["Goals For"]), 1)
     goals_conceded = round(average(results["Goals Against"]), 1)
     goal_diff = round(average(results["Goal Difference"]), 1)
     averages = [position, team, played, wins, draws, losses,
-                points, goals_for, goals_conceded, goal_diff]
+                points, point_std, goals_for, goals_conceded, goal_diff]
 
     champions = len(results.loc[(results["Rank"] == 1)])
     cl_qual = len(results.loc[(results["Rank"] <= 4)])
@@ -239,4 +242,4 @@ print("Arsenal Data")
 print(arsenal_averages)
 
 elapsed = (time.time() - start_time) / 60.0
-print("Simulating 500 seasons took: " + str(elapsed) + "minutes")
+print("Simulating 1000 seasons took: " + str(elapsed) + "minutes")

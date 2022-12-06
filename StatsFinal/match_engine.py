@@ -1,10 +1,7 @@
 import math
 
 import numpy as np
-from numpy import average, random, std
-from scipy.stats import poisson as poisson
-
-import team
+from numpy import average, random
 
 
 class MatchEngine:
@@ -39,8 +36,9 @@ class MatchEngine:
         home_goals, away_goals = self.get_goals(
             home_on_target, away_on_target, home_xG, home_nsxG, away_xG, away_nsxG)
 
-        # print(home_name + " " + str(home_goals) +
-        #       "-" + str(away_goals) + " " + away_name)
+        # if home_goals + away_goals > 4:
+        print(home_name + " " + str(home_goals) +
+              "-" + str(away_goals) + " " + away_name)
 
         score = home_goals - away_goals
         home_result, away_result = self.determine_winner(score)
@@ -126,46 +124,27 @@ class MatchEngine:
         away_xGoals = average(
             [(away_xGoals * 1.25) + (away_x_goals * 0.25), home_x_allowed])
 
-        goal_values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        home_prob = []
-        away_prob = []
+        xG_dependency = 0.25 * math.sqrt(math.fabs(home_xGoals*away_xGoals))
+        home_xGoals -= xG_dependency
+        away_xGoals -= xG_dependency
 
-        def get_goals(home_xGoals, away_xGoals):
-            for i, val in enumerate(goal_values):
-                home_val = poisson.pmf(k=val, mu=home_xGoals) * 1000
-                away_val = poisson.pmf(k=val, mu=away_xGoals) * 1000
-                if not math.isnan(home_val):
-                    home_prob.append(round(home_val))
-                else:
-                    home_prob.append(0)
-                if not math.isnan(away_val):
-                    away_prob.append(round(away_val))
-                else:
-                    away_prob.append(0)
+        def get_goals(home_xGoals, away_xGoals, xG_dependency):
+            home_xGoals = -0.5 * home_xGoals if home_xGoals < 0 else home_xGoals
+            away_xGoals = -0.5 * away_xGoals if away_xGoals < 0 else away_xGoals
 
-            random_home = random.normal(500, 50)
-            random_away = random.normal(500, 50)
+            home_goals = average(np.random.poisson(home_xGoals, 100))
+            away_goals = average(np.random.poisson(away_xGoals, 100))
+            shared = average(np.random.poisson(xG_dependency, 100))
 
-            total = 0
-            home_goals, away_goals = 0, 0
-            for i, prob in enumerate(home_prob):
-                total += prob
-                if random_home <= total:
-                    home_goals = goal_values[i]
-                    break
-
-            total = 0
-            for i, prob in enumerate(away_prob):
-                total += prob
-                if random_away <= total:
-                    away_goals = goal_values[i]
-                    break
-
+            home_goals = int(home_goals + shared)
+            away_goals = int(away_goals + shared)
             return home_goals, away_goals
 
-        home_goals, away_goals = get_goals(home_xGoals, away_xGoals)
+        home_goals, away_goals = get_goals(
+            home_xGoals, away_xGoals, xG_dependency)
         if home_goals == away_goals:
-            home_goals, away_goals = get_goals(home_xGoals, away_xGoals)
+            home_goals, away_goals = get_goals(
+                home_xGoals, away_xGoals, xG_dependency)
 
         return home_goals, away_goals
 

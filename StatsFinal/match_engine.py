@@ -36,9 +36,9 @@ class MatchEngine:
         home_goals, away_goals = self.get_goals(
             home_on_target, away_on_target, home_xG, home_nsxG, away_xG, away_nsxG)
 
-        # if home_goals + away_goals > 4:
-        print(home_name + " " + str(home_goals) +
-              "-" + str(away_goals) + " " + away_name)
+        if home_goals + away_goals >= 5:
+            print(home_name + " " + str(home_goals) +
+                  "-" + str(away_goals) + " " + away_name)
 
         score = home_goals - away_goals
         home_result, away_result = self.determine_winner(score)

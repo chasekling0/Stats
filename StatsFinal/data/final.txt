@@ -1,0 +1,142 @@
+Average Table
+    Rank               Team  Played  Wins  Draws  Losses  Points  Points SD  Goals For  Goals Against  Goal Difference
+1    1.4            Arsenal   38000  27.7    6.9     3.3    90.1       5.42       67.3           26.8             40.5
+2    1.7    Manchester City   38000  27.0    6.6     4.4    87.7       5.38       78.7           27.5             51.2
+3    3.3          Newcastle   38000  21.0   11.5     5.4    74.7       5.87       53.2           20.6             32.7
+4    4.6  Manchester United   38000  21.4    4.6    12.0    68.7       3.37       53.1           40.6             12.5
+5    5.8            Chelsea   38000  19.0    8.1    10.9    65.0       5.23       51.4           36.8             14.5
+6    5.7          Liverpool   38000  18.6    9.1    10.3    64.9       5.05       62.1           37.3             24.8
+7    6.3              Spurs   38000  18.4    8.0    11.6    63.1       4.69       59.2           44.6             14.6
+8    8.0           Brighton   38000  16.8    7.4    13.8    57.9       4.74       50.3           40.8              9.4
+9    9.8          Leicester   38000  15.4    6.2    16.3    52.5       4.98       52.0           47.2              4.8
+10  10.8        Aston Villa   38000  14.4    6.6    16.9    49.9       4.40       40.5           46.0             -5.4
+11  11.2     Crystal Palace   38000  12.3   12.0    13.7    48.9       6.02       40.6           44.3             -3.7
+12  11.8          Brentford   38000  12.0   11.4    14.6    47.5       5.44       45.2           52.5             -7.3
+13  12.4            Everton   38000  11.8   10.2    16.0    45.7       4.33       31.6           37.6             -5.9
+14  14.5        Bournemouth   38000  11.5    6.4    20.1    40.8       4.24       36.6           72.1            -35.4
+15  14.4           West Ham   38000  10.5    8.9    18.6    40.5       5.81       34.6           42.3             -7.7
+16  16.2             Fulham   38000   8.9    9.2    19.9    35.9       4.34       41.5           57.2            -15.7
+17  16.5              Leeds   38000   9.2    7.7    21.1    35.4       5.25       46.1           74.6            -28.5
+18  17.4             Wolves   38000   7.3   10.7    20.0    32.5       4.95       30.7           53.8            -23.1
+19  18.4        Southampton   38000   6.7    8.9    22.4    29.0       5.10       35.2           62.5            -27.3
+20  19.6         Nottingham   38000   5.5    8.4    24.1    24.9       4.01       27.8           72.6            -44.8
+Best Table
+   Rank               Team Played Wins Draws Losses Points Goals For Goals Against Goal Difference
+1     1            Arsenal     38   34     3      1    105        69            13              56
+2     1    Manchester City     38   32     4      2    100        78            22              56
+3     1          Newcastle     38   28     8      2     92        56            12              44
+4     3          Liverpool     38   26     6      6     84        61            26              35
+5     3            Chelsea     38   26     5      7     83        60            27              33
+6     3  Manchester United     38   26     3      9     81        55            33              22
+7     3              Spurs     38   23     8      7     77        61            37              24
+8     3           Brighton     38   23     4     11     73        53            35              18
+9     3     Crystal Palace     38   21     9      8     72        46            32              14
+10    5          Leicester     38   22     3     13     69        61            41              20
+11    6          Brentford     38   19     7     12     64        49            42               7
+12    8        Aston Villa     38   18     9     11     63        42            36               6
+13    8            Everton     38   17    10     11     61        37            29               8
+14    7           West Ham     38   16    12     10     60        38            29               9
+15   11             Fulham     38   14     9     15     51        46            48              -2
+16   11              Leeds     38   16     3     19     51        45            66             -21
+17   11             Wolves     38   13    11     14     50        33            41              -8
+18   12        Bournemouth     38   15     5     18     50        42            63             -21
+19   15        Southampton     38   13     5     20     44        42            58             -16
+20   17         Nottingham     38   11     5     22     38        31            68             -37
+Worst Table
+   Rank               Team Played Wins Draws Losses Points Goals For Goals Against Goal Difference
+1     3            Arsenal     38   22     8      8     74        60            34              26
+2     5    Manchester City     38   19     9     10     66        71            33              38
+3     5          Newcastle     38   16    13      9     61        49            26              23
+4     7  Manchester United     38   18     5     15     59        51            50               1
+5     9              Spurs     38   14     9     15     51        57            52               5
+6    11          Liverpool     38   11    15     12     48        53            42              11
+7    12            Chelsea     38   13     8     17     47        45            53              -8
+8    12           Brighton     38   12     8     18     44        44            48              -4
+9    16          Leicester     38    8     9     21     33        42            49              -7
+10   17        Aston Villa     38    7    11     20     32        33            49             -16
+11   18     Crystal Palace     38    7    11     20     32        38            56             -18
+12   17          Brentford     38    6    13     19     31        40            69             -29
+13   18            Everton     38    5    14     19     29        30            49             -19
+14   19        Bournemouth     38    6     9     23     27        32            85             -53
+15   19             Fulham     38    5    10     23     25        38            67             -29
+16   20           West Ham     38    5     7     26     22        24            47             -23
+17   20              Leeds     38    5     4     29     19        41            93             -52
+18   20             Wolves     38    2     9     27     15        27            64             -37
+19   20         Nottingham     38    3     6     29     15        24            84             -60
+20   20        Southampton     38    3     5     30     14        30            74             -44
+Other Stats
+                 Team  Champions  CL Qual  EL Qual  ECL Qual  Last In  Relegated  Bottom
+1             Arsenal        605     1000        0         0        0          0       0
+2     Manchester City        376      999        1         0        0          0       0
+3           Newcastle         19      897       99         2        0          0       0
+4   Manchester United          0      501      455        40        0          0       0
+5           Liverpool          0      232      472       182        0          0       0
+6             Chelsea          0      225      439       217        0          0       0
+7               Spurs          0      130      382       281        0          0       0
+8            Brighton          0       14      120       187        0          0       0
+9      Crystal Palace          0        2       12        21       11          1       0
+10          Leicester          0        0       16        51        1          0       0
+11          Brentford          0        0        3        10       10          2       0
+12        Aston Villa          0        0        1         5        4          1       0
+13           West Ham          0        0        0         3       88         82       4
+14            Everton          0        0        0         1       12          7       0
+15             Fulham          0        0        0         0      237        223      12
+16              Leeds          0        0        0         0      236        327      27
+17             Wolves          0        0        0         0      206        545      62
+18        Southampton          0        0        0         0      102        791     210
+19        Bournemouth          0        0        0         0       74         46       1
+20         Nottingham          0        0        0         0       19        975     684
+Arsenal Data
+       Team           Opponent Home/Away  Possession   Passes   Shots  On Target  Goals  Allowed  Win %  Draw %  Loss %
+1   Arsenal        Aston Villa      Away    62.32400  563.888  12.194      3.683  0.678    0.016  0.666   0.323   0.011
+2   Arsenal        Aston Villa      Home    59.60000  504.000  22.000      9.000  2.000    1.000  1.000   0.000   0.000
+3   Arsenal        Bournemouth      Away    58.20000  580.000  14.000      6.000  3.000    0.000  1.000   0.000   0.000
+4   Arsenal        Bournemouth      Home    73.60079  640.469  20.384      6.559  3.616    0.883  1.000   0.000   0.000
+5   Arsenal          Brentford      Home    61.34310  534.734  20.774      7.606  2.381    1.149  0.871   0.107   0.022
+6   Arsenal          Brentford      Away    63.90000  592.000  13.000      7.000  3.000    0.000  1.000   0.000   0.000
+7   Arsenal           Brighton      Away    51.86374  474.293   9.043      2.875  0.739    0.071  0.679   0.282   0.039
+8   Arsenal           Brighton      Home    53.45853  465.543  13.293      5.217  1.954    1.264  0.703   0.217   0.080
+9   Arsenal            Chelsea      Away    55.70000  452.000  14.000      2.000  1.000    0.000  1.000   0.000   0.000
+10  Arsenal            Chelsea      Home    50.37999  438.486  14.984      7.435  1.464    1.348  0.367   0.369   0.264
+11  Arsenal     Crystal Palace      Home    63.38377  551.527  16.659      5.638  1.627    1.049  0.599   0.301   0.100
+12  Arsenal     Crystal Palace      Away    43.70000  438.000  10.000      2.000  2.000    0.000  1.000   0.000   0.000
+13  Arsenal            Everton      Away    62.02674  563.555  17.232      5.737  0.559    0.007  0.545   0.449   0.006
+14  Arsenal            Everton      Home    65.16254  567.951  22.208      7.249  1.751    1.124  0.614   0.267   0.119
+15  Arsenal             Fulham      Away    58.19304  530.232  15.006      7.543  1.442    0.002  0.986   0.014   0.000
+16  Arsenal             Fulham      Home    72.00000  595.000  22.000      8.000  2.000    1.000  1.000   0.000   0.000
+17  Arsenal              Leeds      Away    53.00000  500.000   9.000      4.000  1.000    0.000  1.000   0.000   0.000
+18  Arsenal              Leeds      Home    59.28884  515.863  17.906      7.077  3.695    1.126  0.993   0.007   0.000
+19  Arsenal          Leicester      Away    55.48782  505.601  10.642      2.798  0.380    0.088  0.363   0.563   0.074
+20  Arsenal          Leicester      Home    49.90000  462.000  19.000      7.000  4.000    2.000  1.000   0.000   0.000
+21  Arsenal          Liverpool      Away    46.86271  428.480   9.660      4.788  0.691    0.016  0.672   0.318   0.010
+22  Arsenal          Liverpool      Home    44.00000  386.000  11.000      7.000  3.000    2.000  1.000   0.000   0.000
+23  Arsenal    Manchester City      Home    42.31641  368.794   9.211      2.802  0.279    1.786  0.007   0.076   0.917
+24  Arsenal    Manchester City      Away    40.49080  367.383   7.419      3.402  0.954    0.016  0.882   0.111   0.007
+25  Arsenal  Manchester United      Away    60.50000  465.000  16.000      3.000  1.000    3.000  0.000   0.000   1.000
+26  Arsenal  Manchester United      Home    57.19139  499.458  15.157      6.004  2.230    1.426  0.693   0.226   0.081
+27  Arsenal          Newcastle      Away    52.87691  483.601  11.200      3.038  0.002    0.001  0.002   0.997   0.001
+28  Arsenal          Newcastle      Home    62.36362  542.400  17.136      5.544  1.123    1.258  0.228   0.440   0.332
+29  Arsenal         Nottingham      Away    65.87349  600.073  15.433      4.787  1.330    0.000  0.994   0.006   0.000
+30  Arsenal         Nottingham      Home    69.40000  613.000  24.000     10.000  5.000    0.000  1.000   0.000   0.000
+31  Arsenal        Southampton      Away    59.30000  541.000  12.000      3.000  1.000    1.000  0.000   1.000   0.000
+32  Arsenal        Southampton      Home    65.93173  575.531  14.036      4.331  1.902    0.974  0.836   0.139   0.025
+33  Arsenal              Spurs      Away    53.92397  489.860  12.724      3.716  1.165    0.049  0.951   0.048   0.001
+34  Arsenal              Spurs      Home    64.70000  565.000  22.000      9.000  3.000    1.000  1.000   0.000   0.000
+35  Arsenal           West Ham      Away    61.23971  560.251  11.396      3.997  1.238    0.000  0.987   0.013   0.000
+36  Arsenal           West Ham      Home    63.31806  551.743  14.967      5.908  1.458    1.166  0.431   0.386   0.183
+37  Arsenal             Wolves      Home    59.54537  518.994  15.832      5.173  1.653    1.015  0.648   0.289   0.063
+38  Arsenal             Wolves      Away    62.60000  579.000  14.000      4.000  2.000    0.000  1.000   0.000   0.000
+Simulating 1000 seasons took: 392.8158785025279minutes
+PS C:\Users\chase\OneDrive\Documents\Fall2022Classes\Stats\StatsFinal> 
+
+
+Liverpool 3-1 Manchester City (1-0)
+Arsenal 2-0 Everton (2-1)
+Arsenal 4-0 Chelsea (2-1)
+Leeds 0-1 Aston Villa (1-1)
+Aston Villa 2-2 Manchester United (2-1)
+Brighton 0-1 Brentford (1-1)
+Liverpool 2-0 Crystal Palace (3-0)
+Manchester United 3-1 Crystal Palace (2-0)
+Crystal Palace 1-1 Leeds United (1-1)
+

@@ -3,6 +3,7 @@ import time
 import pandas as pd
 from numpy import average, std
 
+from data_scraping import get_ratings
 from match_engine import MatchEngine
 from team import Team
 
@@ -13,28 +14,7 @@ results_data.drop(["Fouls", "Yellow Cards", "Red Cards"], inplace=True, axis=1)
 
 team_names = results_data["Team"].unique()
 
-spi_start = {
-    "Manchester City": 91.2,
-    "Liverpool": 86.4,
-    "Arsenal": 85.9,
-    "Chelsea": 81,
-    "Manchester United": 80,
-    "Newcastle": 79.9,
-    "Spurs": 79.4,
-    "Brighton": 78.2,
-    "West Ham": 73.8,
-    "Aston Villa": 72.2,
-    "Leicester": 70.2,
-    "Crystal Palace": 69.5,
-    "Brentford": 68.3,
-    "Leeds": 65.1,
-    "Southampton": 63.2,
-    "Wolves": 62.9,
-    "Fulham": 62,
-    "Everton": 60.7,
-    "Bournemouth": 56.6,
-    "Nottingham": 55.3,
-}
+spi_start = get_ratings()
 
 header = ["Team", "Played", "Wins", "Draws", "Losses",
           "Points", "Goals For", "Goals Against", "Goal Difference"]
@@ -60,7 +40,7 @@ for i, team_name in enumerate(team_names):
 
 match_engine = MatchEngine(team_objects, results_data)
 
-for i in range(1):
+for i in range(10):
     # set up the seasons
     print("Season #" + str(i+1))
 
